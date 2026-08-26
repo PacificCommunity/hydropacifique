@@ -1,10 +1,19 @@
 # === Credentials & sensitive configuration ===
 # NEVER version control DB / server access
 include/config_plateform.php
+# All .env files, at the repo root and in any subfolder (include/, scripts/, ...)
 .env
 .env.*
+*.env
+**/.env
+**/.env.*
+/scripts/.env
+/scripts/.env.*
+/include/.env
+/include/.env.*
 # ...but the placeholder template must be shared with the team.
 !.env.example
+!**/.env.example
 secrets.php
 credentials.php
 
