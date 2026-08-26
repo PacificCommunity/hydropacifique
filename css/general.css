@@ -1,0 +1,334 @@
+/*  
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/				
+
+/* fichiers d'import */
+
+@import url(header.css);
+@import url(bottom.css);
+@import url(titre.css);
+@import url(contenu.css);
+@import url(onglet.css);
+@import url(formulaire.css);
+@import url(cadre_display.css);
+@import url(view.css);
+@import url(color.css);
+
+@import url(index.css);
+@import url(gestion.css);
+@import url(log.css);
+
+
+@import url(time-series.css);
+
+@import url(tableau.css);
+
+
+@import url(flatpickr.min.css);
+@import url(flatpickr-airbnb.css);
+
+
+@import url(stats.css);
+@import url(stats_select.css);
+
+@import url(select2.min.css);
+
+@import url(leaflet.css);
+@import url(MarkerCluster.css);
+@import url(MarkerCluster.Default.css);
+@import url(leaflet-legend.css);
+@import url(leaflet.fullscreen.css);
+
+*{outline: none;}
+
+hr{clear: both;visibility: hidden;}
+
+p{margin: 0px;padding: 0px;}
+
+a{color: #000;text-decoration: none;cursor: pointer;font-size: 11px;}
+a:hover{text-decoration: none;color:#930000;}
+
+img{border:0;}
+
+html{width:100%;height: 100%;}
+
+body
+{
+	/*font-family: Arial, Helvetica, sans-serifHelvetica;*/
+	height: calc(100% - 80px);
+
+	font-family: Roboto,Arial,sans-serif;
+ 	font-size: 11px;
+	margin:0;
+	padding:0;
+/*	background-color: #000;*/
+}
+
+#contour_general
+{	
+	/*position: fixed;*/
+	position: relative;
+
+	width: auto;
+	height: 100%;
+
+	margin: 0;
+	margin-top: 70px;
+	/*margin-left:9.5%;*/
+	
+	background-color: #fff;
+
+
+	overflow-y:hidden;	
+}
+
+#fond_log
+{	
+	width:100%;
+	height:50vh;
+	
+	margin:0;
+	text-align:center;
+}
+
+
+#fond_log_img
+{	
+	width:100%;
+}
+
+#contour_affichage
+{
+	display:none;
+	/*visibility:hidden;*/
+}
+
+#box_load
+{	
+	width:30%;
+	font-size:14px;
+	text-align:center;
+	
+	margin-top: 150px;
+	margin-left:30%;
+}
+
+.hp-loader
+{
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+}
+ 
+/* Static HP wordmark in the center */
+.hp-loader .hp-mark
+{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    user-select: none;
+}
+ 
+.hp-loader .hp-mark .h { color: #1a1a1a; }
+.hp-loader .hp-mark .p { color: #a0a0a0; }
+ 
+ 
+/* Rotating ring */
+.hp-loader .hp-ring
+{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: #176B87;
+    border-right-color: #176B87;
+    animation: hp-spin 1s linear infinite;
+}
+ 
+@keyframes hp-spin
+{
+    to { transform: rotate(360deg); }
+}
+ 
+ 
+/* Optional : a soft inner ring for more depth (subtle) */
+.hp-loader::before
+{
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid #f0f0f0;
+}
+
+
+
+
+/* Alternative à un gif d'attente */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(0,0,0,.3);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+
+
+#barre, #barre_progress
+{	
+	width:100%;
+	height: 25px;
+	
+	background-color: white;
+	margin-top:10px;
+	 
+	border-radius: 5px; /* Bordure arrondie */
+    box-shadow: 1px 1px 4px #999; /* Ombre */
+    overflow: hidden; /* Empêcher le débordement */
+}
+
+
+#pourcentage, #pourcentage_compil, #pourcentage_compress
+{	
+	height: 25px;
+    background-color: #053B50;
+    /*transition: width 0.5s ease;  Transition animée */
+}
+
+
+span.info
+{
+	float: left;
+	width: 120px;
+	margin: 5px 0px;
+	margin-right: 40px;
+	font-size: 11px;
+	color: #2971A7;	
+}
+
+span.del
+{
+	float: left;
+	width:100%;
+
+	text-align:center;
+	font-size: 14px;
+	color: #000;	
+
+	cursor:pointer;
+}
+span.del:hover{text-decoration: none;color:#DD4B39;}
+
+#options-box {
+	display: none;
+	width: 200px;
+	height: 200px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 40px;
+	right: 0;
+  }
+
+
+
+.graphFullSreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: white;
+}
+
+/* 1. Hide the colored line marker in the unified tooltip */
+.hoverlayer .legend .legendlines {
+    display: none;
+}
+
+/* 2. Hide the marker symbol (square, x, circle...) in the unified tooltip */
+.hoverlayer .legend .legendsymbols,
+.hoverlayer .legend .legendpoints {
+    display: none;
+}
+
+/* 3. Shift the text left to fill the empty space */
+.hoverlayer .legend .legendtext {
+    transform: translateX(-35px);
+}
+
+/* 4. Offset the tooltip from the cursor (20px right, 15px down) */
+.hoverlayer .legend {
+    transform: translate(80px, 30px) !important;
+}
+
+
+.hoverlayer .legend .legendlines  { display: none; }
+.hoverlayer .legend .legendtext   { transform: translateX(-35px); }
+.hoverlayer .legend               { transform: translate(20px, 15px) !important; }
+
+.hovertext text,
+.hovertext text tspan,
+.legendtext,
+.legendtext tspan {
+    font-size: 11px !important;
+}
+
+  /* Barre de défilement verticale */
+
+
+/* Pour les navigateurs WebKit (Chrome, Safari) */
+
+/* Pour Firefox */
+* {
+	scrollbar-width: thin; /* Largeur de la barre de défilement */
+	scrollbar-color: #bdbdbd #f1f1f1; /* Couleur de la poignée et de la piste */
+  }
+  
+/* Pour Edge (basé sur Chromium) */
+/* Utilisez le préfixe -ms- */
+* {
+	-ms-overflow-style: none; /* Désactive la barre de défilement Edge par défaut */
+}
+
+::-webkit-scrollbar {
+    width: 8px; /* Largeur de la barre de défilement */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Couleur de l'arrière-plan de la barre de défilement */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #bdbdbd; /* Couleur de la poignée de la barre de défilement */
+    border-radius: 5px; /* Coins arrondis de la poignée */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #bdbdbd; /* Couleur de la poignée lorsqu'elle est survolée */
+}
+
+

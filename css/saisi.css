@@ -1,0 +1,85 @@
+/*  
+----------------------------------------
+Copyright (c) 2015 - Vai-Natura
+----------------------------------------
+*/
+
+
+/* Type Tableau saisi */
+
+.ligne_reception
+{
+	width:980px;
+}
+
+
+#ch1{float:left;width:110px;}
+#ch1_bis{float:left;width:160px;text-align:right;}
+
+#ch2{float:left;width:180px;}
+#ch3{float:left;width:40px;text-align:right;}
+
+#ch4{float:left;width:490px;height:100%;text-align:left;}
+#ch5{float:left;width:440px;text-align:right;}
+#ch5_bis{float:left;width:280px;text-align:right;}
+
+
+#tab_entete
+{
+	float:left;
+	width:980px;		
+	height: 25px;
+		
+	margin-bottom:25px;
+		
+	font-size: 13px;
+	font-weight:normal;
+	color:#054b96;
+	
+	border-bottom:1px solid #ccc;border:1x solid red;
+
+}
+
+
+
+#tab_bottom
+{
+	float:left;
+	width:980px;		
+	height: 100%;
+		
+	margin-top:0px;
+		
+	font-size: 13px;
+	font-weight:normal;
+	color:#054b96;
+	
+	border-top:1px solid #ccc;
+
+}
+
+
+#info
+{
+	float:right;
+	width:460px;		
+	height: 30px;
+		
+	margin-top:0px;
+		
+	font-size: 13px;
+	font-weight:normal;
+	color:#999;
+	
+}
+
+
+#info p
+{
+	float:left;
+	width:100px;
+	
+}
+
+#info_b{float:left;width:100%;margin-bottom:15px;}
+#info_b p{color:#7e7e7e;}

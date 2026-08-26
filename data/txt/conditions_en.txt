@@ -1,0 +1,71 @@
+<b>HydroPacifique Platform - Terms and Conditions</b>
+<br><br>
+
+<b>1. Purpose and Scope</b>
+<br>
+These Terms and Conditions govern access to and use of the HydroPacifique platform, published by ahmes.net (Vai Natura SARL). They apply to all users and are subject to the laws and regulations of French Polynesia.
+<br><br>
+
+<b>2. Access to the Platform</b>
+<br>
+Access to the platform is free of charge and restricted to registered users. The information collected during registration (name, first name, company, email) is strictly necessary for account management and is not used for commercial purposes nor shared with third parties, except as required by law (e.g., judicial requests).
+<br><br>
+
+<b>3. Protection of Personal Data</b>
+<br>
+<i>Legal Basis</i>: Data processing is based on the execution of the contract (platform access), in compliance with Law No. 2018-16 of February 2, 2018, on data protection in French Polynesia.
+<br>
+<i>Purpose</i>: Data is used exclusively to authenticate users and ensure the security and operation of the platform.
+<br>
+<i>Retention Period</i>: User data is retained for 3 years after account closure, unless an earlier deletion is requested.
+<br>
+<i>User Rights</i>: You have the right to access, rectify, erase, and export your data.
+<br>
+<i>Security</i>: Data is hosted on a secured server and protected against unauthorized access.
+<br><br>
+
+<b>4. User Responsibilities</b>
+<br>
+The accuracy of all information provided in the platform is the sole responsibility of the users.
+<br>
+The platform must not be used for illegal or unethical purposes.
+<br>
+Any abusive use may result in account suspension.
+<br><br>
+
+<b>5. Intellectual Property</b>
+<br>
+User-generated data remains the sole responsibility of the user.
+<br><br>
+The HydroPacifique platform is built on open-source code and is maintained and secured by Vai Natura.
+<br><br>
+
+<b>6. Limitation of Liability</b>
+<br>
+The Publisher does not guarantee continuous availability of the platform.
+<br>
+The Publisher disclaims liability for indirect damages (e.g., data loss, commercial harm), except in cases of gross negligence.
+<br><br>
+
+<b>7. Termination and Modification of Terms</b>
+<br>
+<i>Termination</i>: You may shut your account down at any time. The Publisher reserves the right to suspend accounts in case of breach of these Terms.
+<br>
+<i>Modification</i>: These Terms may be updated. Users will be notified via email or platform announcements. Continued use of the platform constitutes acceptance of the new conditions.
+<br><br>
+
+<b>8. Disputes and Applicable Law</b>
+<br>
+Any disputes will be resolved under the jurisdiction of the courts of Papeete (French Polynesia).
+<br>
+These Terms are governed by the law of French Polynesia.
+<br><br>
+
+<b>9. Data Hosting</b>
+<br>
+User data is hosted on servers located in France.
+<br><br>
+
+<a href="http://vai-natura.com" target='_blank' title='Vai-Natura.com'>
+	<img src='../../image/logo-vn.png' style='width:200px;'>
+</a>

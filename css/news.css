@@ -1,0 +1,47 @@
+/*  
+----------------------------------------
+Copyright (c) 2015 - Vai-Natura
+----------------------------------------
+*/
+
+
+#dhtmlgoodies_marquee
+{
+  /* general marquee layout*/
+  padding-top:3px;
+  height:25px;
+  background-color: #000;
+
+
+  /* End general marquee layout */
+
+
+  position:absolute;
+  left:0px;
+  z-index:1000;
+  bottom:0px;
+  display:none;
+  width:100%;
+  font-size:14px;
+  overflow:hidden;
+}
+
+
+body > div#dhtmlgoodies_marquee
+{	/* Firefox rule */
+  position:fixed;
+}
+
+
+#dhtmlgoodies_marquee .textObj
+{	/* Layout for the marquee text */
+  position:absolute;
+  color: #FFF;
+  font-weight:bold;
+  white-space:nowrap;
+  font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;
+}
+
+/* Just some layout classes used in this script */
+.highlighted{color:#F00;}
+.greenText{color:#0F0;}

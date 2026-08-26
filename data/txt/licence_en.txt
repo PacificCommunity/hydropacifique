@@ -1,0 +1,25 @@
+<b>Data Usage Policy – HydroPacifique Platform</b>
+<br><br>
+The data available on this platform is provided by the services and institutions that produce and share it. Each dataset remains the property of its original producer.
+<br><br>
+<b>Distribution of Data</b>
+<br>
+Distribution of files, graphics, and calculations generated within the HydroPacifique platform is permitted under the following conditions:
+<br><br>
+   - Acknowledge the source explicitly (e.g., "Source: [Producer Name] via HydroPacifique")<br>
+   - Do not alter the meaning of the data<br>
+   - Comply with the terms of use defined by the data producer<br>
+<br><br>
+<b>Responsibility of User Services</b>
+<br>
+Services or institutions using this platform to host or disseminate their data retain full responsibility for its accuracy, updates, and compliance with applicable regulations.
+<br><br>
+<b>Role of HydroPacifique</b>
+<br>
+HydroPacifique acts solely as a technical tool for referencing and dissemination. It does not modify, validate, or guarantee the content of the data.
+<br><br>
+<b>Contact</b>
+<br>
+For further information, please contact:
+<br>
+<a href="mailto:contact@ahmes.net" style="font-size:18px;">contact@ahmes.net</a>

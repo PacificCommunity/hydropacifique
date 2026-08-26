@@ -1,0 +1,41 @@
+# Secrets must never reach an image layer.
+.env
+.env.*
+!.env.example
+include/config_plateform.php
+
+.git
+.gitignore
+.gitattributes
+.claude
+.buildpath
+.project
+.vscode
+.idea
+
+# Installed inside the image by composer install.
+vendor
+node_modules
+
+# Database dumps and backups must not be web-servable.
+db_backup
+*.sql
+*.sql.gz
+*.dump
+
+# Generated documentation.
+*.docx
+*.pdf
+
+# Static map tiles (7MB+) are provided by a bind mount instead.
+map
+
+# Runtime data is a bind-mounted volume; keep only the tracked skeleton.
+data/*
+!data/txt
+!data/index.html
+
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.*.yml

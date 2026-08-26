@@ -1,0 +1,76 @@
+# === Credentials & sensitive configuration ===
+# NEVER version control DB / server access
+include/config_plateform.php
+.env
+.env.*
+# ...but the placeholder template must be shared with the team.
+!.env.example
+secrets.php
+credentials.php
+
+key-*
+*.pem
+*.ppk
+id_rsa
+id_ed25519
+
+# === Dependencies ===
+/vendor/
+/node_modules/
+composer.phar
+# === Logs ===
+*.log
+/logs/
+/log/
+error_log
+# === Temporary files & cache ===
+*.tmp
+*.temp
+*.cache
+/cache/
+/tmp/
+/temp/
+# === Data exports & dumps ===
+*.sql
+*.sql.gz
+*.dump
+/dumps/
+/exports/
+/backups/
+# === User uploads (outside of /data/) ===
+/uploads/
+/upload/
+/files/
+# === /data/ folder: everything excluded except txt and index.html ===
+/data/*
+!/data/txt/
+!/data/index.html
+# === mPDF / PDF generation cache ===
+/mpdf/tmp/
+**/mpdf/ttfontdata/
+
+# === Map assets (tiles / cartographic files, not versioned) ===
+/map/
+
+# === Windows ===
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# === Laragon ===
+*.lock
+!composer.lock
+
+# === Editors / IDE ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
+# === Misc ===
+*.bak
+*.old
+*.orig
+# === Debug / server info (never expose) ===
+phpinfo.php

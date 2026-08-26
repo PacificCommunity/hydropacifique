@@ -1,0 +1,41 @@
+<b>Vous pouvez choisir un ou plusieurs fichiers à importer en cliquant sur le bouton de sélection de fichiers.</b>
+<br>
+La station doit être enregistrée dans l'application.<br>
+Menu : <i>Module / Stations de mesure</i>
+<br>
+Le type de chronique doit être enregistré dans l'application.<br>
+Menu : <i>Paramétrage / Chroniques</i>
+<br>--<br>
+<b>Format CSV</b><br>
+Nom de fichier : <code>codeStation_initialChronique</code><br>
+(ex : <b><code>5700503100_CI.csv</code></b>)
+<br>--<br>
+<b>Colonnes</b>
+<br>
+Le séparateur de colonne peut être <code>;</code> ou <code>,</code> (reconnu automatiquement).
+<br>
+Les données doivent se présenter en 3 colonnes (la 3<sup>e</sup> colonne est facultative) :
+<br>
+<b>date_heure</b> : dd/mm/yyyy hh:mm:ss (ex : <code>13/01/2018 10:53:24</code>)
+<br>
+<b>valeur</b> : nombre décimal (<code>.</code> ou <code>,</code>)
+<br>
+<b>qualite</b> : code qualité (peut être nulle ou vide)<br>
+Le code qualité doit être enregistré dans l'application.<br>
+Menu : <i>Paramétrage / Codes qualités</i>.
+<br><br>
+Les en-têtes de colonnes sont ignorées : elles ne sont ni demandées ni proscrites.
+<br>--<br>
+<b>Exemple de contenu d'un fichier CSV :</b>
+<br>
+<pre style="background:#f4f4f4;padding:10px;border:1px solid #ddd;font-size:13px;">"2020-04-15 00:00:00";1.57978;1-ETL
+"2020-04-16 01:10:15";1.46115;1-ETL
+"2020-04-17 01:25:40";1.3328;1-ETL
+"2020-04-18 02:47:22";1.224;1-ETL
+"2020-04-19 03:58:09";1.14992;1-ETL
+"2020-04-20 05:12:33";23.4704;1-ETL
+"2020-04-21 06:34:51";11.5121;1-ETL
+"2020-04-22 08:05:18";8.62017;1-ETL
+"2020-04-23 09:21:44";5.58838;1-ETL
+"2020-04-24 10:43:07";4.02326;1-ETL
+</pre>

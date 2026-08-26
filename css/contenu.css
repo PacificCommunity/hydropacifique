@@ -1,0 +1,456 @@
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+Notification box (#contenu_info) - modernized
+----------------------------------------
+- Toast-style : soft colored background + bold left border
+- Position : top-centered (preserved)
+- Auto-detection success/error via the inline border color
+  injected by existing JS (no JS/PHP changes required)
+    - #09886d (green) → success styling
+    - #930000 (red)   → error styling
+- Smooth fade-in animation on display
+----------------------------------------
+*/
+
+#contenu_centre
+{
+	float: right;
+	width: 99.5%;
+	height:100%;
+
+	padding: 0;
+	margin: 0;
+}
+
+#contenu_centre.print
+{
+	width: 98%;
+	margin: 0px;
+	border: none;
+}
+
+#contenu_centre p.info
+{	
+	color: #f19d86;
+} 
+
+
+/* CONTENU INFO */
+
+#contenu_info
+{
+    position: fixed;
+    display: block;
+ 
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+ 
+    min-width: 280px;
+    max-width: 480px;
+ 
+    padding: 14px 18px 14px 22px;
+ 
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+ 
+    /* Default = WARNING state (amber) - shown when JS doesn't inject a color.
+       Used for non-blocking warnings like "select at least one station". */
+    color: #000;
+    background-color: #fff8e6;
+    border: 1px solid #f0d89a;
+    border-left: 4px solid #d97706;
+    border-radius: 6px;
+ 
+    /* Modern soft shadow (replaces the heavy 5px 5px shadow) */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10),
+                0 2px 6px rgba(0, 0, 0, 0.06);
+ 
+    z-index: 2000;
+ 
+    animation: contenuInfoFadeIn 0.25s ease-out;
+}
+ 
+ 
+/* =============================================
+   AUTO-DETECTION : SUCCESS (green border injected by JS)
+   --------------------------------------------
+   When JS sets style="border:2px solid #09886d", we
+   apply the green soft background + accent bar.
+   Note: browsers convert hex colors to rgb() in the
+   style attribute, so we match BOTH notations.
+   #09886d = rgb(9, 136, 109)
+   ============================================= */
+div#contenu_info[style*="#09886d"],
+div#contenu_info[style*="rgb(9, 136, 109)"],
+#contenu_info[style*="#09886d"],
+#contenu_info[style*="rgb(9, 136, 109)"]
+{
+    background-color: #ebf5ef !important;
+    color: #08573e !important;
+    border: 1px solid #b9dec8 !important;
+    border-left: 4px solid #09886d !important;
+}
+ 
+/* =============================================
+   AUTO-DETECTION : ERROR (red border injected by JS)
+   --------------------------------------------
+   #930000 = rgb(147, 0, 0)
+   #6B0000 = rgb(107, 0, 0)
+   #d9534f = rgb(217, 83, 79)
+   ============================================= */
+div#contenu_info[style*="#930000"],
+div#contenu_info[style*="#6B0000"],
+div#contenu_info[style*="#d9534f"],
+div#contenu_info[style*="rgb(147, 0, 0)"],
+div#contenu_info[style*="rgb(107, 0, 0)"],
+div#contenu_info[style*="rgb(217, 83, 79)"],
+#contenu_info[style*="#930000"],
+#contenu_info[style*="#6B0000"],
+#contenu_info[style*="#d9534f"],
+#contenu_info[style*="rgb(147, 0, 0)"],
+#contenu_info[style*="rgb(107, 0, 0)"],
+#contenu_info[style*="rgb(217, 83, 79)"]
+{
+    background-color: #fdeded !important;
+    color: #6b0000 !important;
+    border: 1px solid #f0c4c4 !important;
+    border-left: 4px solid #930000 !important;
+}
+
+
+/* =============================================
+   FADE-IN ANIMATION
+   ============================================= */
+@keyframes contenuInfoFadeIn
+{
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+#contenu_option
+{	
+	float:left;
+	width:100%;	
+
+	font-size: 13px;
+	
+	background-color:#EFF5F1;
+	
+	border-radius: 4px;
+}
+
+#contenu_option img
+{	
+	width:13px;
+	margin-right: 5px;	
+}
+
+
+#contenu_plus
+{	
+	float:left;
+	width: 350px;
+
+	font-size:20px;
+} 
+
+
+.contenu_plus
+{	
+	text-align:center;
+	font-size:20px;
+	font-weight:bold;
+} 
+
+
+/* 
+-----------------------
+CONTENU CENTRE TRI 
+-----------------------
+*/
+
+#contenu_tri
+{
+	float:left;
+	width: 100%;
+  	margin-top:5px;
+  	margin-bottom:10px;
+	margin-left:10px;
+}
+
+#contenu_tri form
+{
+	float: left;
+	font-size: 13px;
+}
+
+#contenu_tri span
+{
+	float: left;
+	margin-top:5px;
+}
+
+#contenu_tri img
+{
+	width:25px;
+	float:left;
+
+	cursor:pointer;
+}
+
+
+/* 
+-----------------------
+CONTENU CENTRE INFOS 
+-----------------------
+*/
+
+
+#contenu_infos
+{
+    float: left;
+    width: 90%;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+ 
+    /* Soft yellow gradient background, subtle warm border */
+    background: linear-gradient(180deg, #fffbe6 0%, #fff5cc 100%);
+    border: 1px solid #f0e0a0;
+    border-radius: 4px;
+ 
+    font-family: 'Open Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+ 
+/* Container paragraph - reset bold and rely on span styling */
+#contenu_infos p
+{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-weight: 400;
+}
+ 
+/* Each <span> is a counter line */
+#contenu_infos p span
+{
+    display: block;
+    padding: 5px 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: #393E46;
+}
+ 
+/* The <hr> elements between <span> become dashed dividers */
+#contenu_infos p hr
+{
+    border: none;
+    border-top: 1px dashed rgba(0, 0, 0, 0.10);
+    margin: 0;
+    height: 0;
+}
+ 
+#contenu_infos_load, #contenu_download
+{
+	float:left;
+	width:40%;
+	padding:2px 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+	border-radius: 2px;	
+	border: 1px solid #000;
+}
+
+
+#contenu_search span{margin-top:2px;}
+
+/* 
+-----------------------
+CONTENU CENTRE SEARCH
+-----------------------
+*/
+
+#contenu_search
+{
+	float:right;
+	width:340px;
+}
+
+#contenu_search span{float:left;margin-top:6px;}
+#contenu_search form{float:left;}
+
+
+/* 
+----------------------
+CONTENU CENTRE SAISI
+-----------------------
+*/
+
+
+#contenu_saisi
+{
+	float:left;
+	width: 300px;
+}
+
+#contenu_saisi span{float:left;margin-top:6px;margin-right:5px;}
+#contenu_saisi form{float:left;}
+
+
+/* 
+-----------------------
+AFFICHE COMMENTAIRES 
+------------------------
+*/
+
+#contenu_centre table#comment
+{
+	width: 500px;
+	text-align: left;
+	font-size: 11px;
+}
+
+
+#contenu_centre table#comment td
+{
+	text-align: left;
+	padding: 10px 0;
+}
+
+
+
+#contenu_centre table#comment td.info
+{
+	width: 150px;
+	font-weight: normal;
+}
+
+#contenu_centre table#comment td.contenu{color: #f19d86;}
+
+/* 
+------------------------
+AFFICHE LISTE 
+------------------------
+*/ 
+
+#contenu_centre ul.year
+{
+	float: left;
+	list-style-type: none;	
+
+	width: 100%;
+	height: 27px; 
+
+	padding: 0px;
+}
+
+
+#contenu_centre li.select_y, li.select_n
+{
+	float: left;
+	width: 85px;
+	height: 20px;
+
+	margin-right: 40px;
+	margin-bottom: 30px;
+	padding-top: 7px; 
+
+	text-align:center;
+	font-weight:bold;
+	font-size: 14px;
+	letter-spacing:1px;
+
+	background-image:url(../image/form/grey_button.png);
+}
+
+#contenu_centre li.select_y{background-image:url(../image/form/grey_button_dark.png);}
+#contenu_centre li.select_y a{color:#FFFFFF;}
+#contenu_centre li.select_y a:hover{text-decoration:none;}
+
+
+/* 
+-------------------
+BOXES CONTENT 
+-------------------
+*/
+
+#contenu_box
+{
+	float: left;
+	width:8%;
+	margin-right:0px;
+}
+
+#contenu_box p{margin-bottom:5px;}
+
+#contenu_box a
+{
+	font-size: 11px;
+	font-weight:normal;	
+	/*color:#666666;*/
+}
+
+#contenu_box a:hover{color: #09886d;text-decoration:none;}
+
+#contenu_box2
+{
+	float: left;
+	width:99.5%;
+}
+
+/*
+-------------------
+BOX RESULT
+-------------------
+*/
+
+#box_result
+{
+	float: left;
+	width: 90%;
+	margin-left: 0px;
+	margin-bottom: 20px;
+	
+	padding: 15px;
+
+	-moz-border-radius: 0 0 5px  0;
+	border-radius: 0 0 5px  0;
+	-khtml-border-radius:  0 0 5px  0;
+	-webkit-border-radius:  0 0 5px  0;
+
+	border: 3px solid #15151d;
+}
+
+
+#box_result table
+{
+	margin: 10px;
+}
+
+#box_result td.info
+{
+	font-weight:bold;	
+}
+
+
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+NOTE: the graph card header rules (.graph-header / .graph-actions and the
+action-button layout for graph_chron.php) were moved to formulaire.css during
+consolidation, next to the base button styles they relate to. Look there.
+----------------------------------------
+*/

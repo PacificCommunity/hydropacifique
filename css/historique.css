@@ -1,0 +1,23 @@
+/*  
+----------------------------------------
+Copyright (c) 2015 - Vai-Natura
+----------------------------------------
+*/
+
+#histo_stock
+{
+	margin-left: 10px;
+}
+
+
+#histo_titre a
+{	
+	font-size:14px;
+	color:#999;	
+}
+#histo_titre a:hover{color:#054b96;}
+
+#histo_move
+{
+	margin-top: 10px;
+}

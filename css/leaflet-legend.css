@@ -1,0 +1,227 @@
+/*  
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/				
+
+/* ICONES CARTE */
+
+:root {
+    --map-zoom-size: 15px; /* Taille par défaut */
+}
+
+.marker-pin {
+    width: var(--map-zoom-size, 15px);
+    height: var(--map-zoom-size, 15px);
+    border-radius: 50% 50% 50% 0;
+    position: absolute;
+    transform: rotate(-45deg);
+    /* On centre dynamiquement selon la taille */
+    margin-top: calc(var(--map-zoom-size) * -0.5);
+    margin-left: calc(var(--map-zoom-size) * -0.5);
+    /*
+	border: 1px solid #fff;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	*/
+}
+
+.marker-pin::after {
+    content: '';
+    /* Le point central fera toujours 40% de la taille de la goutte */
+    width: calc(var(--map-zoom-size) * 0.5);
+    height: calc(var(--map-zoom-size) * 0.5);
+	/* Centrage : (1 - 0.5) / 2 = 0.25 */
+    margin-top: calc(var(--map-zoom-size) * 0.25);
+    margin-left: calc(var(--map-zoom-size) * 0.25);
+    position: absolute;
+    border-radius: 50%;
+}
+
+
+/* Couleurs du cercle central selon le statut */
+.statut-active::after     { background: #ffffff; } /* Blanc */
+.statut-historique::after { background: #000000; } /* Noir */
+.statut-ponctuel::after   { background: #9E9E9E; } /* Gris */
+.statut-panne::after      { background: #ff0000; } /* Rouge */
+
+
+/* ---------------------------------------- */
+/* LEGEND MAP pour la Carte Interactive */
+
+.legend {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+/* Header */
+.legend-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.legend-header h4 {
+    margin: 0;
+    padding: 0;
+    
+    font-size: 13px;
+    flex: 1;
+    border: none;
+}
+
+.legend-toggle {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    line-height: 1;
+    padding: 0;
+    margin-left: 8px;
+    color: #555;
+}
+
+.legend-toggle:hover {
+    background-color: #e9e9e9;
+}
+
+/* Corps de la légende */
+.legend-body {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* État replié */
+.legend.collapsed .legend-body {
+    display: none;
+}
+
+.legend.collapsed .legend-header {
+    border-bottom: none;
+}
+
+.legend.collapsed .legend-header h4 {
+    font-size: 12px;
+}
+
+.legend-item {
+    text-align: left;
+    width: 240px;
+    margin-bottom: 5px;
+    font-size: 11px;
+}
+
+/* Conteneur pour isoler l'icône dans la ligne de légende */
+.legend-marker-wrapper {
+    display: inline-block;
+    width: 20px;
+    height: 25px;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* On force la taille de la goutte dans la légende */
+.legend-marker-wrapper .marker-pin {
+    width: 15px !important;
+    height: 15px !important;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    transform: rotate(-45deg);
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+/* On force la taille du point central dans la légende */
+.legend-marker-wrapper .marker-pin::after {
+    width: 7px !important;
+    height: 7px !important;
+    margin: 4px 0 0 4px !important;
+}
+/* ---------------------------------------- */
+/* TOOLTIP MAP pour la Carte Interactive */
+
+/* Application globale du border-box pour éviter les calculs de tête */
+.tooltip-map, .tooltip-map * {
+    box-sizing: border-box;
+}
+
+.tooltip-map {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px; /* Une sécurité minimum */
+    width: max-content; /* Force la boîte à coller à la largeur du texte */
+    background-color: white;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.tooltip-map h2 {  
+    width: 100%;        
+    margin: 0; /* Important pour éviter les décalages */
+    padding: 8px;
+
+	border-radius: 0;
+}
+
+.tooltip-map h2 span {                
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    display: block; /* Force le span à bien se comporter */
+}
+
+.tooltip-map .content-container {
+    display: flex;
+    flex-direction: row; /* Aligne gauche et droite côte à côte */
+    gap: 20px; /* Espace entre la gauche et la droite */
+    padding: 10px 10px;
+    white-space: nowrap; /* Empêche le texte de revenir à la ligne trop tôt */
+}
+
+.tooltip-item {    
+    font-size: 12px;
+}
+
+.tooltip-item p 
+{            
+    color:#000;
+}
+
+
+/* Supprime la marge du dernier paragraphe pour un padding uniforme en bas */
+.tooltip-item p:last-child {
+    margin-bottom: 0;
+}
+
+.tooltip-item span 
+{                
+	font-weight: bold;
+}
+
+
+.tooltip-ligne
+{
+    height: 2px; /* Hauteur de la ligne */
+    margin: 10px 0;
+    background-color: #51829B; /* Couleur de la ligne */
+}
+
+
+/* ---------------------------------------- */
+/* Stats dans la Carte Interactive */
+table#tab_stat_map
+{
+	text-align: center;
+	border: 1px solid #000;
+}

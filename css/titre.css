@@ -1,0 +1,240 @@
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+titles.css - heading styles
+----------------------------------------
+- h1 modernized: text in soft gray with a red vertical accent bar
+- More breathing room (52px height instead of 40px)
+- Sticky behavior preserved
+- Other heading levels (h2-h8) kept as in original file
+----------------------------------------
+*/
+
+/* TITRES */
+
+/* =============================================
+   H1 - Page title (modernized)
+   --------------------------------------------
+   - Soft gray text instead of saturated red
+   - Red vertical accent bar on the left (partial height)
+   - Comfortable breathing room (60px height + bottom margin)
+   - Sticky behavior preserved
+   - Solid background to avoid see-through scroll
+   ============================================= */
+h1
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+
+    width: 99%;
+    height: 60px;
+    box-sizing: border-box;
+
+    margin: 0;
+    margin-bottom: 12px;
+
+    padding: 0 0 0 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: left;
+    color: #5F5E5A;
+
+    background-color: #fff;
+}
+
+h1::before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 28px;
+    background: #930000;
+    border-radius: 2px;
+}
+
+h1 span { margin-left: 0; }
+
+#appli
+{
+    float: left;
+}
+#appli img
+{
+    width: 25px;
+}
+
+
+/* =============================================
+   H2 - Form / tab subtitle
+   ============================================= */
+h2
+{
+    width: 95%;
+
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 3px;
+    color: #336699;
+}
+h2 span { color: #616; }
+h2.size { font-size: 12px; }
+
+
+/* =============================================
+   H3 - List header
+   ============================================= */
+h3
+{
+    float: left;
+    width: 100%;
+
+    font-size: 16px;
+    font-weight: normal;
+    text-align: left;
+
+    margin: 20px 15px;
+
+    color: #283f72;
+}
+h3 img { margin-right: 10px; }
+h3.pass
+{
+    cursor: pointer;
+    margin: 0;
+}
+
+
+/* =============================================
+   H4 - Resource sidebar header
+   ============================================= */
+h4
+{
+    float: left;
+    width: 95%;
+    padding: 7px 0;
+    padding-left: 2px;
+
+    margin: 0;
+    margin-bottom: 5px;
+
+    font-family: Helvetica;
+    font-size: 14px;
+    text-align: left;
+    font-weight: bold;
+
+    border-bottom: 1px solid #d2d2d2;
+}
+h4.first { margin-top: 10px; }
+h4 span
+{
+    margin-left: 5px;
+}
+
+
+/* =============================================
+   H5 - Index page feature title
+   ============================================= */
+h5
+{
+    float: left;
+
+    font-size: 24px;
+    font-family: Helvetica;
+    font-weight: normal;
+    margin: 0;
+
+    margin-bottom: 40px;
+    color: #43648B;
+}
+
+
+/* =============================================
+   H6 - "No data found" info
+   ============================================= */
+h6
+{
+    float: left;
+    width: 100%;
+
+    font-size: 16px;
+    font-family: Helvetica;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 0;
+
+    margin-left: 15px;
+    margin-top: 20px;
+    color: #b31d1d;
+}
+
+
+/* =============================================
+   H7 - Free-use header
+   ============================================= */
+h7
+{
+    float: left;
+    width: 100%;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+
+    color: #fff;
+
+    padding: 10px 0;
+    padding-left: 5px;
+    padding-right: 11px;
+    margin: 0;
+
+    background-color: #15151d;
+}
+h7 span
+{
+    font-size: 11px;
+    font-weight: normal;
+}
+
+
+/* =============================================
+   H8 - Stats box title
+   ============================================= */
+h8
+{
+    float: left;
+    width: 100%;
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #fff;
+
+    padding: 10px 0;
+    padding-left: 5px;
+    margin: 0;
+    margin-bottom: 5px;
+    border: none;
+
+    background-color: #15151d;
+}
+h8.lgt
+{
+    text-align: left;
+    color: #fff;
+    border: none;
+    background-color: #15151d;
+}
+h8 img { width: 20px; margin-right: 15px; }

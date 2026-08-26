@@ -1,0 +1,133 @@
+/*  
+----------------------------------------
+Copyright (c) 2015 - Vai-Natura
+----------------------------------------
+*/
+
+#index
+{
+	float: left;
+	
+	width:55%;
+	height:400px;
+	margin-top: 7%;
+	margin-left: 10%;
+	border-top: 3px solid #336699;
+	
+	/*
+	border-bottom: 30px solid #336699;
+	
+	-moz-border-radius: 0 0 10px  0;
+	border-radius: 0 0 10px  0;
+	-khtml-border-radius:  0 0 10px  0;
+	-webkit-border-radius:  0 0 10px  0;
+	*/
+}
+
+
+
+#index p.bloc
+{
+	margin: 80px 15px;
+	font-size:14px;
+	text-align:justify;
+	line-height:22px;
+}
+
+
+
+/* ---------------------------------------- */
+
+
+#cadre_index
+{
+	float:left;
+	
+	width: 240px;
+	
+	text-align:left;
+	
+	margin-top:30px;
+	margin-right:50px;	
+	
+	border-left: 1px solid #e4e4e4;	
+}
+
+
+#cadre_index .content
+{
+	margin-left: 20px;
+}
+
+
+#cadre_index p
+{
+	margin-top: 20px;
+	font-size:13px;
+}
+
+#cadre_index img
+{
+	float: left;
+	
+	width:45px;
+	margin-top:20px;
+	margin-right: 10px;
+}
+
+
+/* ---------------------------------------- */
+
+#cadre_index_bas
+{
+	float: left;
+	width: 100%;
+	height:100px;
+	
+	margin-top:100px;
+	
+	border-top:1px solid #CADEF2;
+	/*border-bottom:1px solid #CADEF2;*/
+	
+	/*background-color:#DFEBF8;*/
+	
+	
+}
+
+
+
+
+/* liens */
+#cadre_index a{color:#11C;cursor:pointer;}
+#cadre_index a:hover{text-decoration:underline;}
+
+
+/* liste */
+
+#cadre_index_bas ul /* Liste */     
+{
+	float:left;
+	width:230px;
+	height:60px;
+	padding : 0; /* pas de marge intÃ©rieure */
+    margin : 0; /* ni extÃ©rieure */
+	margin-left: 15px;	
+	
+
+	list-style : none; /* on supprime le style par dÃ©faut de la liste */
+    text-align : left; /* on centre le texte qui se trouve dans la liste */
+
+	font-size: 13px;		
+}
+
+#cadre_index_bas li /* Ã‰lÃ©ments des listes */      
+{
+	float:left;
+	width: 100%;
+	margin-bottom:5px;
+	text-align : left; 
+}
+
+/* liens */
+#cadre_index_bas a{color:#1B4EC3;cursor:pointer;}
+#cadre_index_bas a:hover{text-decoration:underline;}

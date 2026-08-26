@@ -1,0 +1,230 @@
+<?php
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+Geographic entity deletion confirmation popup
+- Reused by all six geo tabs (region, commune, regionhydro, riviere,
+  aquifere, tournee)
+- Includes a small math challenge (same pattern as ETL / JGE deletion)
+  to prevent accidental clicks on the X button
+- The actual deletion is performed by a callback function (stored in
+  window._geoDelCallback) registered just before the popup is opened
+----------------------------------------
+*/
+
+echo "<div id='box_del_geo' class='block_view'
+            style='position:absolute;width:500px;height:auto;top:50px;left:38%;background:none;
+                    display:none;flex-direction:column;overflow:hidden;'>\n";
+
+    echo "<div id='cadre_view_2' style='padding:0;margin:0;
+                                        display:flex;flex-direction:column;flex:1;overflow:hidden;'>\n";
+
+        // ---- Header (must be the first direct child of #cadre_view_2 to
+        //      inherit the blue header style from the global CSS rule:
+        //      #cadre_view_2 > *:first-child { background-color: ... }) ----
+        echo "<p id='title_box_jge_simple'
+                style='float:left;width:100%;padding:15px 0;
+                       font-size:16px;font-weight:bold;
+                       color:#000;background-color:#f5f5f5;
+                       flex-shrink:0;'>";
+
+            echo "<span style='margin-left:15px;'>" . TEXT_GEO_VERIFDEL_TITLE . "</span>";
+            echo "<span id='button_close_del_geo' style='float:right;margin-right:15px;cursor:pointer;'>X</span>";
+
+        echo "</p>\n";
+
+        // ---- Body ----
+        echo "<div style='flex:1;padding:20px 25px;box-sizing:border-box;'>\n";
+
+            // Target entity (filled by confirmDeleteGeo())
+            echo "<p id='del_geo_target' style='font-size:14px;margin:0 0 12px 0;'></p>\n";
+
+            echo "<p style='font-size:13px;margin:0 0 15px 0;color:#930000;'>";
+                echo TEXT_GEO_VERIFDEL_IRREVERSIBLE;
+            echo "</p>\n";
+
+            // Math challenge box
+            echo "<div style='padding:10px 12px;background:#fff;border:1px solid #ddd;border-radius:3px;'>";
+
+                echo "<div style='font-size:12px;color:#666;margin-bottom:8px;'>";
+                    echo TEXT_GEO_VERIFDEL_CHALLENGE_HINT;
+                echo "</div>";
+
+                echo "<div style='display:flex;align-items:center;gap:8px;'>";
+                    echo "<span id='del_geo_challenge_a'  style='font-size:16px;font-weight:bold;'></span>";
+                    echo "<span id='del_geo_challenge_op' style='font-size:16px;font-weight:bold;'></span>";
+                    echo "<span id='del_geo_challenge_b'  style='font-size:16px;font-weight:bold;'></span>";
+                    echo "<span style='font-size:16px;font-weight:bold;'>=</span>";
+                    echo "<input type='text' id='del_geo_answer' style='width:60px;font-size:16px;padding:4px;' autocomplete='off'>";
+                    echo "<span id='del_geo_feedback' style='font-size:14px;font-weight:bold;'></span>";
+                echo "</div>";
+
+            echo "</div>";
+
+            // Action buttons
+            echo "<div style='margin-top:20px;text-align:right;'>";
+                echo "<input type='button' id='no_valid_del_geo' class='button_close' value='" . TEXT_GEO_VERIFDEL_CANCEL . "' style='margin-right:8px;'>";
+                echo "<input type='button' id='ok_valid_del_geo' class='button'       value='" . TEXT_GEO_VERIFDEL_OK     . "' style='opacity:0.45;cursor:not-allowed;' disabled>";
+            echo "</div>";
+
+        echo "</div>\n";
+
+    echo "</div>\n";
+
+echo "</div>\n";
+?>
+
+<script type="text/javascript">
+
+    var popup_del_geo         = document.getElementById('box_del_geo');
+    var button_cancel_del_geo = document.getElementById('no_valid_del_geo');
+    var button_close_del_geo  = document.getElementById('button_close_del_geo');
+    var button_ok_del_geo     = document.getElementById('ok_valid_del_geo');
+
+    var geoChallengeAnswer   = document.getElementById('del_geo_answer');
+    var geoChallengeFeedback = document.getElementById('del_geo_feedback');
+    var geoChallengeExpected = 0;
+
+    // Callback to run on confirm — set by confirmDeleteGeo() before showing the popup
+    window._geoDelCallback = null;
+
+
+    // -----------------------------------------------
+    // confirmDeleteGeo(targetHtml, onConfirm)
+    // Opens the confirmation popup with a fresh math challenge.
+    //
+    //   targetHtml : HTML string shown at the top of the popup
+    //                (e.g. "Delete the river <b>Saint-Louis</b> ?")
+    //   onConfirm  : function called when the user confirms (typically the
+    //                delete_XXX() function for the corresponding entity)
+    //
+    // Exposed globally so the onClick attributes generated by the
+    // process_tab_*.php endpoints can call it.
+
+    function confirmDeleteGeo(targetHtml, onConfirm)
+    {
+        document.getElementById('del_geo_target').innerHTML = targetHtml;
+        window._geoDelCallback = onConfirm;
+        popup_del_geo.style.display = 'block';
+        generateGeoDelChallenge();
+    }
+
+
+    // -----------------------------------------------
+    // generateGeoDelChallenge() — pick a random math operation
+
+    function generateGeoDelChallenge()
+    {
+        var ops = ['+', '-', 'x'];
+        var op  = ops[Math.floor(Math.random() * ops.length)];
+        var a, b;
+
+        if (op === '+')
+        {
+            a = Math.floor(Math.random() * 16) + 5;
+            b = Math.floor(Math.random() * 14) + 2;
+            geoChallengeExpected = a + b;
+        }
+        else if (op === '-')
+        {
+            a = Math.floor(Math.random() * 21) + 10;
+            b = Math.floor(Math.random() * (a - 1)) + 1;
+            geoChallengeExpected = a - b;
+        }
+        else
+        {
+            a = Math.floor(Math.random() * 8) + 2;
+            b = Math.floor(Math.random() * 8) + 2;
+            geoChallengeExpected = a * b;
+        }
+
+        document.getElementById('del_geo_challenge_a').textContent  = a;
+        document.getElementById('del_geo_challenge_op').textContent = op;
+        document.getElementById('del_geo_challenge_b').textContent  = b;
+        geoChallengeAnswer.value      = '';
+        geoChallengeFeedback.textContent = '';
+        setGeoDelButtonEnabled(false);
+
+        setTimeout(function() { geoChallengeAnswer.focus(); }, 100);
+    }
+
+
+    // -----------------------------------------------
+    // Enable/disable the OK button based on the challenge answer
+
+    function setGeoDelButtonEnabled(on)
+    {
+        button_ok_del_geo.disabled      = !on;
+        button_ok_del_geo.style.opacity = on ? '1'       : '0.45';
+        button_ok_del_geo.style.cursor  = on ? 'pointer' : 'not-allowed';
+    }
+
+    geoChallengeAnswer.addEventListener('input', function()
+    {
+        var v = parseInt(geoChallengeAnswer.value, 10);
+        if (geoChallengeAnswer.value === '' || isNaN(v))
+        {
+            geoChallengeFeedback.textContent = '';
+            setGeoDelButtonEnabled(false);
+        }
+        else if (v === geoChallengeExpected)
+        {
+            geoChallengeFeedback.textContent = '✓';
+            geoChallengeFeedback.style.color = '#09886d';
+            setGeoDelButtonEnabled(true);
+        }
+        else
+        {
+            geoChallengeFeedback.textContent = '✗';
+            geoChallengeFeedback.style.color = '#930000';
+            setGeoDelButtonEnabled(false);
+        }
+    });
+
+
+    // -----------------------------------------------
+    // Close popup: X button, Cancel button, Escape, or Enter to submit
+
+    document.addEventListener("click", function(event)
+    {
+        if (event.target === button_cancel_del_geo || event.target === button_close_del_geo)
+        {
+            popup_del_geo.style.display = "none";
+            window._geoDelCallback = null;
+        }
+    });
+
+    document.addEventListener("keydown", function(event)
+    {
+        if (popup_del_geo.style.display !== 'block') { return; }
+        if (event.key === "Escape")
+        {
+            popup_del_geo.style.display = "none";
+            window._geoDelCallback = null;
+        }
+        if (event.key === "Enter" && !button_ok_del_geo.disabled)
+        {
+            button_ok_del_geo.click();
+        }
+    });
+
+
+    // -----------------------------------------------
+    // Confirm: close popup and run the registered callback
+
+    button_ok_del_geo.addEventListener('click', function()
+    {
+        if (button_ok_del_geo.disabled) { return; }
+
+        popup_del_geo.style.display = "none";
+
+        if (typeof window._geoDelCallback === 'function')
+        {
+            var cb = window._geoDelCallback;
+            window._geoDelCallback = null;
+            cb();
+        }
+    });
+
+</script>

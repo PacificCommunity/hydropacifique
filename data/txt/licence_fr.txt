@@ -1,0 +1,25 @@
+Les données présentées sur cette plateforme sont issues des services et institutions qui les produisent et les partagent. Chaque jeu de données reste la propriété de son producteur d’origine
+<br><br>
+
+<b>Licence d’utilisation</b>
+La diffusion des fichiers, graphiques et calculs produits au sein de la plateforme HydroPacifique est autorisée, sous réserve de :
+<br><br>
+- mentionner explicitement la source (ex. : « Source : [Nom du producteur] via HydroPacifique »)<br>
+- ne pas altérer la signification des données<br>
+- respecter les conditions d’utilisation définies par le producteur<br>
+</ul>
+
+<br><br>
+
+<b>Responsabilité des services utilisateurs</b>
+Les services ou institutions utilisant cette plateforme pour héberger 
+ou diffuser leurs données conservent l’entière responsabilité de leur exactitude, 
+de leur mise à jour et de leur conformité aux réglementations en vigueur.
+<br>
+<b>HydroPacifique agit uniquement en tant qu’outil technique </b>de référencement et de diffusion, sans modifier, valider ou garantir le contenu des données.
+
+
+
+<br><br>
+
+Pour plus d'information, veuillez nous contacter : <a href="mailto:contact@ahmes.net"   style='font-size:18px;'>contact@ahmes.net</a>

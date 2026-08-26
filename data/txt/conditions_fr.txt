@@ -1,0 +1,90 @@
+<b>1. Objet et champ d’application</b>
+<br>
+Les présentes CGU régissent l’accès et l’utilisation de la plateforme HydroPacifique, éditée par ahmes.net (Société Vai-Natura).
+Elles s’appliquent à tous les utilisateurs, conformément à la réglementation en vigueur en Polynésie française.
+
+<br><br>
+
+<b>2. Accès à la plateforme</b>
+<br>
+
+L’accès est gratuit et réservé aux utilisateurs inscrits.
+Les informations collectées (nom, prénom, société, courriel) sont strictement nécessaires à la gestion des comptes.
+Aucune donnée n’est utilisée à des fins commerciales ou transmise à des tiers, sauf obligation légale (ex. : réquisition judiciaire).
+
+<br><br>
+
+<b>3. Protection des données personnelles</b>
+<br>
+
+<i>Base légale</i> : Le traitement des données est fondé sur l’exécution du contrat (accès à la plateforme), conformément à la loi n°2018-16 du 2 février 2018 relative à la protection des données en Polynésie française.
+<br>
+<i>Finalité</i> : Les données sont utilisées uniquement pour authentifier l’utilisateur et assurer la sécurité et le fonctionnement de la plateforme.
+<br>
+<i>Durée de conservation</i> : Les données sont conservées 3 ans après la fermeture du compte, sauf demande de suppression anticipée.
+<br>
+<i>Droits des utilisateurs</i> : Vous disposez d’un droit d’accès, de rectification, d’effacement et de portabilité de vos données. 
+<br>
+Pour l’exercer, contactez : 
+<a href="mailto:contact@ahmes.net"  style='font-size:18px;'>contact@ahmes.net</a>.
+<br>
+<i>Sécurité</i> : Les données sont hébergées sur un serveur de la société Vai-Natura et protégées contre tout accès non autorisé.
+
+<br><br>
+
+<b>4. Responsabilités de l’utilisateur</b>
+<br>
+Vous garantissez l’exactitude des informations fournies.
+<br>
+Vous vous engagez à ne pas utiliser la plateforme à des fins illégales ou contraires à l’éthique.
+<br>
+Toute utilisation abusive peut entraîner la suspension du compte.
+
+<br><br>
+
+<b>5. Propriété intellectuelle</b>
+<br>
+Les données saisies par les utilisateurs sur la plateforme relèvent de leur entière responsabilité.
+<br><br>
+La plateforme HydroPacifique s'appuie sur un code en OPEN SOURCE. Elle est maintenue et sécurisée par la société Vai-Natura.
+
+<br><br>
+
+<b>6. Limitation de responsabilité</b>
+<br>
+L’Éditeur ne garantit pas une disponibilité permanente de la plateforme.
+<br>
+L’Éditeur décline toute responsabilité en cas de dommages indirects (perte de données, préjudice commercial, etc.), sauf en cas de faute lourde.
+
+<br><br>
+
+<b>7. Résiliation et modification des CGU</b>
+<br>
+<i>Résiliation</i> : Vous pouvez clôturer votre compte à tout moment. L’Éditeur se réserve le droit de suspendre un compte en cas de manquement aux CGU.
+<br>
+<i>Modification</i> : Les CGU peuvent être mises à jour. Les utilisateurs en seront informés par email ou via la plateforme. La poursuite de l’utilisation vaut acceptation des nouvelles conditions.
+
+<br><br>
+
+<b>8. Litiges et droit applicable</b>
+<br>
+
+Tout litige sera soumis aux tribunaux de Papeete (Polynésie française).
+<br>
+Les présentes CGU sont régies par le droit polynésien.
+
+<br><br>
+
+<b>9. Hébergement des données : </b>
+<br>
+
+Les données sont hébergées sur des serveurs situés en France Métropolitaine. 
+
+
+
+
+<br><br>
+
+<a href="http://vai-natura.com" target='_blank' title='Vai-Natura.com'>
+	<img src='../../image/logo-vn.png' style='width:200px;'>
+</a>

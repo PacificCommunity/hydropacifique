@@ -1,0 +1,967 @@
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+form.css - modernized buttons + transfer lists
+----------------------------------------
+- All buttons unified in OUTLINE style:
+    - White background, colored border, colored text
+    - Fills with color on hover (text becomes white)
+    - 6px rounded corners
+    - Subtle shadow + border
+- Each button keeps its semantic color (no PHP changes)
+- Transfer list (#select_station_ref / #target_station_ref) modernized
+  with soft borders, fine scrollbar, hover/selected feedback
+- Other form elements (inputs, selects, textarea, toggle switch)
+  are preserved with minor visual harmonization
+----------------------------------------
+*/
+
+
+/* =============================================
+   TEXT INPUTS
+   ============================================= */
+
+input
+{
+    padding: 7px 8px;
+
+    color: #2c2c2a;
+
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+
+    border: 1px solid #d4d8dd;
+    border-radius: 4px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus
+{
+    outline: none;
+    border-color: #176B87;
+    box-shadow: 0 0 0 2px rgba(23, 107, 135, 0.15);
+}
+
+input.input-calc::placeholder { color: #e98fde; }
+
+input.text_info { border: none; color: #ccc; }
+
+input.input_texte         { float: left; width: 130px; }
+input.input_texte_plus    { float: left; width: 250px; }
+input.input_texte_medium  { float: left; width: 207px; }
+input.input_texte_xsmall  { width: 40px; }
+input.input_texte_60      { width: 60px; }
+input.input_texte_small   { width: 80px; }
+input.input_texte_100     { width: 100px; }
+input.input_texte_130     { width: 130px; }
+input.input_texte_200     { width: 200px; }
+input.input_texte_300     { width: 300px; }
+input.input_texte_450     { width: 450px; }
+
+input.titre { width: 250px; }
+
+input.input_date
+{
+    float: left;
+    width: 80px;
+    height: 15px;
+
+    margin-right: 50px;
+
+    padding: 2px 5px;
+
+    font-size: 14px;
+}
+
+input.correction
+{
+    float: left;
+    font-size: 11px;
+    border: 0px;
+}
+
+input.msg { border: 0px; }
+
+
+/* =============================================
+   UNIFIED BUTTON BASE (outline style)
+   --------------------------------------------
+   All button-like elements share this base.
+   Color variants below override only the
+   semantic color (border + text + hover fill).
+   ============================================= */
+
+input.button, input.submit,
+input.button_valid, input.button_close, input.button_close_graph,
+input.button_delete, input.button_graph,
+input.button_calcul, input.button_stats, input.button_tab,
+input.button_export, input.button_import,
+input.button_black, input.button_profil, input.button_mauve,
+input.button_download,
+#button_titre, #button_tonomad, #button_toserveur,
+#button_modif, .button_lacune,
+#button_visu, #button_duplic,
+#button_pdf, #button_xls,
+#button_newChron, #button_load, .button_HQ,
+#button_del, #button_convert, #convert_wait, #save_wait,
+button.zoom_graph, button.inverse_axe,
+button.valid, button.validunder,
+button.log_axe, button.decimal_axe, button.b_fullsreen,
+button.bstats, button.bstats-adv
+{
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 7px 16px;
+
+    font-family: 'Open Sans', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+
+    background-color: #fff;
+    border: 1px solid #d4d8dd;
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+input.button:hover, input.submit:hover,
+input.button_valid:hover, input.button_close:hover, input.button_close_graph:hover,
+input.button_delete:hover, input.button_graph:hover,
+input.button_calcul:hover, input.button_stats:hover, input.button_tab:hover,
+input.button_export:hover, input.button_import:hover,
+input.button_black:hover, input.button_profil:hover, input.button_mauve:hover,
+input.button_download:hover,
+#button_titre:hover, #button_tonomad:hover, #button_toserveur:hover,
+#button_modif:hover, .button_lacune:hover,
+#button_visu:hover, #button_duplic:hover,
+#button_pdf:hover, #button_xls:hover,
+#button_newChron:hover, #button_load:hover, .button_HQ:hover,
+#button_del:hover, #button_convert:hover,
+button.zoom_graph:hover, button.inverse_axe:hover,
+button.valid:hover, button.validunder:hover,
+button.log_axe:hover, button.decimal_axe:hover, button.b_fullsreen:hover,
+button.bstats:hover, button.bstats-adv:hover
+{
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =============================================
+   COLOR VARIANTS
+   --------------------------------------------
+   Each variant only overrides border color,
+   text color, and hover fill color.
+   ============================================= */
+
+/* RED — submit / save / cancel main actions */
+input.button, input.submit
+{ color: #930000; border-color: #930000; }
+input.button:hover, input.submit:hover
+{ background-color: #930000; }
+
+
+/* BLUE — validate */
+input.button_valid
+{ color: #428bca; border-color: #428bca; }
+input.button_valid:hover
+{ background-color: #428bca; }
+
+
+/* BLACK — close / generic */
+input.button_close
+{ color: #36454f; border-color: #36454f; }
+input.button_close:hover
+{ background-color: #36454f; }
+
+
+/* BLUE — close graph */
+input.button_close_graph
+{ color: #005b96; border-color: #005b96; padding: 5px 14px; }
+input.button_close_graph:hover
+{ background-color: #005b96; }
+
+
+/* DARK RED — delete */
+input.button_delete
+{ color: #960a00; border-color: #960a00; }
+input.button_delete:hover
+{ background-color: #960a00; }
+
+
+/* BLUE — graph */
+input.button_graph
+{ color: #005b96; border-color: #005b96; padding: 5px 12px; font-size: 12px; }
+input.button_graph:hover
+{ background-color: #005b96; }
+
+
+/* DARK RED — calcul */
+input.button_calcul
+{ color: #960a00; border-color: #960a00; float: right; padding: 7px 14px; }
+input.button_calcul:hover
+{ background-color: #960a00; }
+
+
+/* BLACK — stats */
+input.button_stats
+{ color: #36454f; border-color: #36454f; float: right; width: 95px; padding: 6px 10px; }
+input.button_stats:hover
+{ background-color: #36454f; }
+
+
+/* BLUE — tab */
+input.button_tab
+{ color: #005b96; border-color: #005b96; float: right; width: 55px; padding: 6px 10px; }
+input.button_tab:hover
+{ background-color: #005b96; }
+
+
+/* GREEN — export */
+input.button_export
+{ color: #36802d; border-color: #36802d; padding: 5px 12px; font-size: 12px; }
+input.button_export:hover
+{ background-color: #36802d; }
+
+
+/* BLUE — import (full width) */
+input.button_import
+{ color: #005b96; border-color: #005b96; width: 100%; padding: 8px 12px; }
+input.button_import:hover
+{ background-color: #005b96; }
+
+
+/* BLACK — generic */
+input.button_black
+{ color: #2c2c2a; border-color: #2c2c2a; padding: 5px 12px; font-size: 12px; }
+input.button_black:hover
+{ background-color: #2c2c2a; }
+
+
+/* INVERSE — profil (filled by default to keep emphasis) */
+input.button_profil
+{
+    color: #fff;
+    background-color: #2c2c2a;
+    border-color: #2c2c2a;
+    width: 200px;
+    padding: 10px;
+    font-size: 15px;
+    margin-left: 20px;
+}
+input.button_profil:hover
+{
+    color: #fff;
+    background-color: #8E44AD;
+    border-color: #8E44AD;
+}
+
+
+/* MAUVE */
+input.button_mauve
+{ color: #974EC3; border-color: #974EC3; width: 300px; padding: 5px 12px; }
+input.button_mauve:hover
+{ background-color: #974EC3; }
+
+
+/* GREY — download */
+input.button_download
+{ color: #36454f; border-color: #36454f; float: right; padding: 9px 22px; }
+input.button_download:hover
+{ background-color: #36454f; }
+
+
+/* GREY — title button (block) */
+#button_titre
+{ color: #36454f; border-color: #36454f; padding: 6px 28px; }
+#button_titre:hover
+{ background-color: #36454f; }
+
+
+/* GREY — nomad/server */
+#button_tonomad, #button_toserveur
+{ color: #36454f; border-color: #36454f; padding: 10px 12px; font-size: 12px; }
+#button_tonomad:hover, #button_toserveur:hover
+{ background-color: #36454f; }
+
+
+/* GREEN — modif */
+#button_modif, .button_lacune
+{ color: #36802d; border-color: #36802d; float: right; width: 67px; padding: 5px 8px; font-size: 12px; }
+#button_modif:hover, .button_lacune:hover
+{ background-color: #36802d; }
+
+
+/* CORAL — visu / duplic */
+#button_visu, #button_duplic
+{ color: #B45253; border-color: #B45253; float: right; padding: 6px 14px; }
+#button_visu:hover, #button_duplic:hover
+{ background-color: #B45253; }
+
+
+/* PDF / XLS — neutral grey at rest, color on hover via inner <p> */
+#button_pdf, #button_xls
+{
+    color: #36454f;
+    border-color: #36454f;
+    float: right;
+    width: 160px;
+    padding: 4px 8px;
+}
+#button_pdf:hover { background-color: #960a00; border-color: #960a00; color: #fff; }
+#button_xls:hover { background-color: #2B580C; border-color: #2B580C; color: #fff; }
+#button_pdf p, #button_xls p { color: inherit; transition: color 0.15s; margin: 0; }
+
+
+/* PURPLE — newChron / load / HQ */
+#button_newChron, #button_load, .button_HQ
+{ color: #756AB6; border-color: #756AB6; padding: 6px 14px; }
+#button_newChron:hover, #button_load:hover, .button_HQ:hover
+{ background-color: #756AB6; }
+
+
+/* DARK RED — delete actions / convert */
+#button_del, #button_convert
+{ color: #ae2012; border-color: #ae2012; padding: 6px 14px; }
+#button_del:hover, #button_convert:hover
+{ background-color: #ae2012; }
+
+/* INVERSE — wait state (already filled to indicate processing) */
+#convert_wait, #save_wait
+{
+    cursor: default;
+    color: #fff;
+    background-color: #ae2012;
+    border-color: #ae2012;
+    padding: 6px 14px;
+    box-shadow: none;
+}
+
+
+/* TEAL — zoom graph */
+button.zoom_graph
+{ color: #016A70; border-color: #016A70; width: 100px; padding: 5px 10px; font-size: 12px; }
+button.zoom_graph:hover
+{ background-color: #016A70; }
+
+
+/* PINK — inverse axe */
+button.inverse_axe
+{
+    background-color: transparent;
+    border: 1px solid currentColor;
+    transition: background-color 0.15s ease;
+    cursor: pointer;
+}
+button.inverse_axe:hover
+{background-color: #f0f0f0;}
+
+
+/* BLUE — valid (large) */
+button.valid
+{ color: #485791; border-color: #485791; width: 200px; padding: 9px 14px; font-size: 14px; }
+button.valid:hover
+{ background-color: #485791; }
+
+
+/* RED — validunder (large) */
+button.validunder
+{ color: #930000; border-color: #930000; width: 200px; padding: 9px 14px; font-size: 14px; }
+button.validunder:hover
+{ background-color: #930000; }
+
+
+/* DARK PURPLE — log axe */
+button.log_axe
+{ color: #4D455D; border-color: #4D455D; padding: 5px 10px; font-size: 12px; }
+button.log_axe:hover
+{ background-color: #4D455D; }
+
+
+/* DARK PURPLE — decimal axe */
+button.decimal_axe
+{ color: #4D455D; border-color: #4D455D; padding: 1px 4px; font-size: 12px; }
+button.decimal_axe:hover
+{ background-color: #4D455D; }
+
+
+/* BLUE — fullscreen */
+button.b_fullsreen
+{ color: #485791; border-color: #485791; width: 110px; padding: 5px 10px; font-size: 12px; }
+button.b_fullsreen:hover
+{ background-color: #485791; }
+
+
+/* DARK BLUE — stats (left aligned) */
+button.bstats
+{
+    color: #3C5B6F;
+    border-color: #3C5B6F;
+    width: 225px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 13px;
+}
+button.bstats.active { color: #fff; background-color: #3C5B6F; }
+button.bstats:hover  { background-color: #3C5B6F; }
+
+
+/* DARK RED — stats advanced (left aligned) */
+button.bstats-adv
+{
+    color: #B22222;
+    border-color: #B22222;
+    width: 225px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 13px;
+}
+button.bstats-adv.active { color: #fff; background-color: #B22222; }
+button.bstats-adv:hover  { background-color: #B22222; }
+
+
+/* =============================================
+   FORM EDIT LAYOUT (preserved)
+   ============================================= */
+
+.form-edit-chron
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 0;
+}
+
+
+/* =============================================
+   iOS-STYLE TOGGLE SWITCH (preserved)
+   ============================================= */
+
+.toggle-switch
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #555;
+}
+
+.toggle-switch input[type="checkbox"]
+{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider
+{
+    position: relative;
+    width: 36px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.toggle-slider::before
+{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.toggle-switch input:checked + .toggle-slider
+{
+    background: #2471a3;
+}
+
+.toggle-switch input:checked + .toggle-slider::before
+{
+    transform: translateX(16px);
+}
+
+.toggle-switch input:focus-visible + .toggle-slider
+{
+    outline: 2px solid #2471a3;
+    outline-offset: 2px;
+}
+
+.toggle-label { font-weight: 500; }
+
+
+/* =============================================
+   GENERIC <button> ELEMENT
+   ============================================= */
+
+button
+{
+    padding: 5px;
+    color: #2c2c2a;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    border: 1px solid #d4d8dd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+
+/* =============================================
+   IMAGE BUTTONS (preserved as-is for icons)
+   ============================================= */
+
+button.valid_img
+{
+    float: left;
+
+    padding: 0px;
+
+    width: 28px;
+    height: 28px;
+
+    border: 0px solid #ddd;
+    background-color: #FFFFFF;
+    background-image: url(../image/icones/arrow_next.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
+button.valid_img:hover { background-image: url(../image/icones/arrow_next_over.png); }
+
+
+/* =============================================
+   ADDITIONAL INPUTS
+   ============================================= */
+
+input.b_del
+{
+    padding: 0;
+
+    width: 25px;
+    height: 25px;
+
+    border: 0px solid #ddd;
+    background-color: #FFFFFF;
+    background-image: url(../image/icones/delete.png);
+
+    cursor: pointer;
+}
+
+
+input.button_pass
+{
+    width: 175px;
+    height: 30px;
+
+    margin-left: 0px;
+    padding: 6px 30px;
+
+    font-weight: normal;
+    color: #858585;
+
+    background-image: url(../image/form/submit_pass.png);
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+}
+
+
+input.checkbox
+{
+    margin-top: 0;
+    background-color: #fff;
+}
+
+
+span.selectAll
+{
+    padding: 2px 5px;
+    border-bottom: 1px solid #cc0000;
+    cursor:pointer;
+}
+span.selectAll:hover { color: #fff; background-color: #cc0000; }
+
+
+/* =============================================
+   TEXTAREA
+   ============================================= */
+
+textarea
+{
+    width: 450px;
+    height: 130px;
+
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+
+    padding: 7px 8px;
+    border: 1px solid #d4d8dd;
+    border-radius: 4px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+textarea:focus
+{
+    outline: none;
+    border-color: #176B87;
+    box-shadow: 0 0 0 2px rgba(23, 107, 135, 0.15);
+}
+
+
+/* =============================================
+   SELECT
+   ============================================= */
+
+select
+{
+    width: 200px;
+    height: 28px;
+
+    margin-right: 0px;
+
+    padding: 4px 8px;
+
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    color: #2c2c2a;
+
+    border: 1px solid #d4d8dd;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+select:focus
+{
+    outline: none;
+    border-color: #176B87;
+    box-shadow: 0 0 0 2px rgba(23, 107, 135, 0.15);
+}
+
+
+/* =============================================
+   TRANSFER LIST
+   --------------------------------------------
+   Two side-by-side <select multiple> lists used to
+   move stations between source and target. The
+   DB-injected option background colors are preserved.
+   ============================================= */
+
+#select_station_ref,
+#target_station_ref
+{
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 11px;
+    padding: 4px 0;
+
+    background-color: #fff;
+    border: 1px solid #d4d8dd;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+    transition: border-color 0.15s, box-shadow 0.15s;
+
+    /* Fine scrollbar (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: #c0c8cf transparent;
+}
+
+#select_station_ref:focus,
+#target_station_ref:focus
+{
+    outline: none;
+    border-color: #176B87;
+    box-shadow: 0 0 0 2px rgba(23, 107, 135, 0.15);
+}
+
+/* Fine scrollbar (WebKit / Chrome / Edge / Safari) */
+#select_station_ref::-webkit-scrollbar,
+#target_station_ref::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+#select_station_ref::-webkit-scrollbar-track,
+#target_station_ref::-webkit-scrollbar-track
+{
+    background: transparent;
+}
+
+#select_station_ref::-webkit-scrollbar-thumb,
+#target_station_ref::-webkit-scrollbar-thumb
+{
+    background-color: #c0c8cf;
+    border-radius: 4px;
+    border: 2px solid #fff;
+}
+
+#select_station_ref::-webkit-scrollbar-thumb:hover,
+#target_station_ref::-webkit-scrollbar-thumb:hover
+{
+    background-color: #176B87;
+}
+
+
+/* Option items : DB color preserved, refined padding/feedback */
+#select_station_ref option,
+#target_station_ref option
+{
+    padding: 6px 10px;
+    color: #2c2c2a;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    transition: filter 0.12s;
+}
+
+#select_station_ref option:last-child,
+#target_station_ref option:last-child
+{
+    border-bottom: none;
+}
+
+#select_station_ref option:hover,
+#target_station_ref option:hover
+{
+    filter: brightness(0.94);
+}
+
+#select_station_ref option:checked,
+#target_station_ref option:checked
+{
+    color: #CB0404;
+    font-weight: 700;
+    box-shadow: inset 3px 0 0 #CB0404;
+}
+
+
+/* Counter headers above each list */
+#selected_refcount,
+#selected_targetcount
+{
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5F5E5A;
+    margin: 0 0 6px 0;
+    padding: 0;
+    width: 100%;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Badge teal around the station count */
+#selected_refcount .num,
+#selected_targetcount .num
+{
+    background-color: #176B87;
+    color: #fff;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.4;
+}
+
+/* When the target list is empty (count = 0), use a softer gray badge */
+#selected_targetcount .num:empty,
+#selected_targetcount .num:where([data-zero])
+{
+    background-color: #c0c8cf;
+}
+
+
+/* Transfer arrow buttons (between the two lists) */
+.transfer-arrows
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.transfer-btn
+{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff;
+    color: #176B87;
+    border: 1px solid #d4d8dd;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.transfer-btn:hover
+{
+    background-color: #176B87;
+    color: #fff;
+    border-color: #176B87;
+    box-shadow: 0 2px 6px rgba(23, 107, 135, 0.25);
+}
+
+.transfer-btn:active
+{
+    transform: scale(0.95);
+}
+
+.transfer-btn svg
+{
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+}
+
+
+/* =============================================
+   MULTISELECT (chronicle station picker)
+   ============================================= */
+
+button.multiselect
+{
+    border: 0px;
+    background: none;
+
+    font-family: Calibri;
+    font-size: 50px;
+    font-weight: bold;
+    color: #930000;
+    cursor: pointer;
+}
+
+button.multiselect:hover
+{
+    background-color: #930000;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+/* =============================================
+   GRAPH HEADER (graph_chron.php "1 graph per chronicle" mode)
+   ---------------------------------------------
+   Moved here from contenu.css during consolidation. The title <p class="titre">
+   keeps its native dark band (defined elsewhere); we add position:relative so
+   the action buttons (Enlarge / Data gaps / Stats) can be anchored on the same
+   band to the right. The button base styles (colors, hover) stay defined above
+   in this file; here we only adjust their layout INSIDE .graph-actions.
+   Specificity of ".graph-actions <button>" already beats the base rules, so no
+   !important is needed (rendering is identical to the previous contenu.css version).
+   ============================================= */
+
+.graph-header
+{
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.graph-header .graph-title
+{
+    margin: 0;
+    padding-right: 360px;
+    min-height: 56px;
+    box-sizing: border-box;
+}
+
+.graph-actions
+{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* Layout reset shared by all action buttons inside .graph-actions:
+   drop the float:right + margins they carry from the base rules so flex
+   can lay them out cleanly. Higher specificity than the base rules, so the
+   reset wins without !important. */
+.graph-actions #button_visu,
+.graph-actions .button_lacune,
+.graph-actions .button_stats,
+.graph-actions .button_tab,
+.graph-actions input.button_stats,
+.graph-actions input.button_tab
+{
+    float: none;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Dynamic Tab/Stats wrappers (filled by JS) behave as inline flex items. */
+.graph-actions > div[id^='button_tab_'],
+.graph-actions > div[id^='button_stats_']
+{
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Per-button widths for the graph header toolbar. These override the fixed
+   widths set in the base button rules above (which are too tight for some
+   languages) only within .graph-actions; elsewhere the base widths stand. */
+.graph-actions #button_visu
+{
+    min-width: 80px;
+    padding: 6px 14px;
+}
+
+.graph-actions .button_lacune
+{
+    width: auto;
+    min-width: 90px;
+    padding: 5px 12px;
+}
+
+.graph-actions input.button_stats
+{
+    width: auto;
+    min-width: 105px;
+    padding: 6px 14px;
+}
+
+.graph-actions input.button_tab
+{
+    width: auto;
+    min-width: 70px;
+    padding: 6px 14px;
+}

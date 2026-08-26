@@ -1,0 +1,72 @@
+/*  
+----------------------------------------
+Copyright (c) 2025 - Vai-Natura
+----------------------------------------
+Format du bloc de configuration des graph
+Color + Epaisseur graph
+
+*/
+
+
+/* BLoc */
+
+#curve-param
+{
+    width:85%;
+    margin-left:2%;
+}
+
+.curve-param-table 
+{
+    float: left;
+    border-collapse: collapse; 
+}
+.curve-param-table tr, .curve-param-table td, .curve-param-table th 
+{
+  position: relative;   /* crée un contexte de positionnement pour le dropdown */
+  overflow: visible;    /* laisse dépasser la palette */
+}
+
+
+/* Couleur Graph */
+
+.color-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 99%;
+    margin-left:1%;
+    cursor: pointer;
+}
+
+.dropdown-selected {
+    width: 95%;
+    height: 15px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.dropdown-list {
+    display: none;
+    position: fixed; /* Utiliser 'fixed' au lieu de 'absolute' pour sortir du flux du tableau */
+    top: auto !important; /* Réinitialiser la position */
+    left: auto !important;
+    width: 50px;;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
+
+    z-index: 10000; 
+    margin-top: 2px; 
+}
+
+.dropdown-item {
+    width: 93%;
+    height: 15px;
+}
+
+.dropdown-item:hover {
+    border: 1px solid black;
+}
+

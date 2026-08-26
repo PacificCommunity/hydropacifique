@@ -1,0 +1,107 @@
+/*  
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/
+
+
+#gestion_list
+{
+	float: left;
+	width:300px;
+}
+
+#gestion_list img
+{
+	float: left;
+	width: 25px;
+	
+	margin-left: 10px; 	
+}
+
+
+#gestion_list p
+{
+	float: left;
+	
+	margin-top: 5px;
+	margin-left: 20px; 
+	
+	font-size: 18px;
+	color: #000000;
+	font-weight:bold;
+}
+
+#gestion_list a
+{
+	font-size: 14px;
+}
+
+
+#gestion_list ul /* Liste */     
+{
+		width:100%;
+		
+		padding : 0; /* pas de marge intérieure */
+        margin-top : 50px;
+		margin-left : 55px; /* ni extérieure */
+	
+
+		list-style : none; /* on supprime le style par défaut de la liste */
+        line-height : 21px; /* on définit une hauteur pour chaque élément */
+        text-align : left; /* on centre le texte qui se trouve dans la liste */
+
+		font-size: 16px;
+}
+
+#gestion_list li /* Liste */     
+{
+		margin-top : 10px;
+}
+
+
+
+
+
+#gestion_droit
+{
+	float: left;
+	width:320px;
+	height: 200px;
+}
+
+
+#gestion_droit table
+{
+	margin-left:15px;
+}
+
+
+
+
+ul.quality_pass
+{
+	 float: left;
+	 
+	 margin: 0px;
+	 margin-top: 5px;
+	 padding: 0px;
+	 
+	 list-style-type: none;
+}
+
+ul.quality_pass li
+{
+	 float: left;
+	 width: 50px;
+	 
+	 margin-right: 2px;
+	 border: 1px solid #ccc;	 
+	 
+	 text-align: center;
+	 color: #aaa;
+	 background-image:none;
+	 
+}
+
+

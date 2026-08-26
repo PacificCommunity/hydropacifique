@@ -1,0 +1,41 @@
+<b>You can select one or more files to import by clicking the file selection button.</b>
+<br>
+The station must be registered in the application.<br>
+Menu: <i>Module / Measurement Stations</i>
+<br>
+The time series type must be registered in the application.<br>
+Menu: <i>Settings / Time Series</i>
+<br>--<br>
+<b>CSV Format</b><br>
+File name: <code>stationCode_seriesInitials</code><br>
+(e.g.: <b><code>5700503100_CI.csv</code></b>)
+<br>--<br>
+<b>Columns</b>
+<br>
+The column separator can be <code>;</code> or <code>,</code> (automatically recognized).
+<br>
+Data must be presented in 3 columns (the 3<sup>rd</sup> column is optional):
+<br>
+<b>date_time</b>: dd/mm/yyyy hh:mm:ss (e.g.: <code>13/01/2018 10:53:24</code>)
+<br>
+<b>value</b>: decimal number (<code>.</code> or <code>,</code>)
+<br>
+<b>quality</b>: quality code (can be null or empty)<br>
+The quality code must be registered in the application.<br>
+Menu: <i>Settings / Quality Codes</i>.
+<br><br>
+Column headers are ignored: they are neither required nor forbidden.
+<br>--<br>
+<b>Example of CSV file content:</b>
+<br>
+<pre style="background:#f4f4f4;padding:10px;border:1px solid #ddd;font-size:13px;">"2020-04-15 00:00:00";1.57978;1-ETL
+"2020-04-16 01:10:15";1.46115;1-ETL
+"2020-04-17 01:25:40";1.3328;1-ETL
+"2020-04-18 02:47:22";1.224;1-ETL
+"2020-04-19 03:58:09";1.14992;1-ETL
+"2020-04-20 05:12:33";23.4704;1-ETL
+"2020-04-21 06:34:51";11.5121;1-ETL
+"2020-04-22 08:05:18";8.62017;1-ETL
+"2020-04-23 09:21:44";5.58838;1-ETL
+"2020-04-24 10:43:07";4.02326;1-ETL
+</pre>

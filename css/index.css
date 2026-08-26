@@ -1,0 +1,174 @@
+/*  
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/
+
+
+
+/* ---------------------------------------- */
+
+
+#index_bconnect, #index_newaccount
+{
+	float: left;
+	
+	width:150px;
+	height:20px;
+	margin: 0 auto;
+	
+	font-size: 18px;
+	text-align:center;
+	line-height: 20px;
+	padding: 10px 5px;
+	border-radius: 3px;
+	
+	/*background-color: #f4e826;*/
+	background-color: #48a4be;
+	color: #000;
+	text-shadow: none;
+}
+#index_newaccount{margin-left:20px;background-color: #f4e826;}
+
+#index_bconnect:hover, #index_newaccount:hover
+{	
+	color: #fff;
+	background-color: #9B4444;
+	border-color: #000;
+}
+/* ---------------------------------------- */
+
+#cadre_index_tab
+{
+	width:80%;
+	
+	margin:0px auto;
+	padding: 0px;
+	
+}
+
+
+#cadre_index_cell, #cadre_index_cell_map
+{
+	float:left;
+	
+	padding: 8px;
+	margin: auto 0;
+	margin-bottom: 10px;	
+	
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+	background-color:#fff;
+	box-shadow: 0 1px 1px 0 rgb(0 0 0 / 14%), 0 2px 1px -1px rgb(0 0 0 / 12%), 0 1px 3px 0 rgb(0 0 0 / 20%);
+}
+
+#cadre_index_cell p
+{
+	float:left;	
+	width:100%;
+	
+	margin-bottom: 5px;
+	font-size:14px;
+	text-align: left;
+	line-height:1.5;
+	color:#000;
+}
+
+#cadre_index_cell p.aa, p.aa
+{	
+	height:25px;
+	
+	margin-bottom: 10px;
+	
+	font-size:14px;
+	font-weight: bold;
+	color:#000;
+}
+
+
+
+#cadre_index_cell img
+{
+	width:80px;
+}
+
+/*---- LISTES ----*/
+#cadre_index_cell ul /* Liste */     
+{
+	width:100%;
+	padding : 0; /* pas de marge intï¿½rieure */
+	margin : 0; /* ni extï¿½rieure */
+
+
+	list-style : none; /* on supprime le style par défaut de la liste */
+	line-height : 21px; /* on définit une hauteur pour chaque élément */
+	text-align : left; /* on centre le texte qui se trouve dans la liste */
+
+	font-size: 14px;
+	color: #b5b5b5;			
+}
+
+#cadre_index_cell li
+{
+   margin-bottom: 10px;
+}
+
+#cadre_index_cell a
+{
+	font-size:12px;
+	color:#000;
+}
+#cadre_index_cell a:hover{text-decoration: none;color:#A00A0A;}
+
+
+/* ---------------------------------------- */
+
+#cadre_index_end
+{
+	float:left;
+	
+	width: 100%;
+	height: 200px;
+	padding-top: 50px;
+	
+	font-size: 11px;
+	color: #ddd;
+	
+	background-color:#E1ECF0;
+}
+#cadre_index_end a{color: #A00A0A;}
+#cadre_index_end a:hover{text-decoration: none;}
+
+
+/* Étiquette de code station */
+.station-code-label {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid #888;
+    border-radius: 3px;
+    padding: 2px 7px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+/* Masquer la petite flèche par défaut du tooltip Leaflet pour ces étiquettes */
+.station-code-label.leaflet-tooltip-right::before,
+.station-code-label.leaflet-tooltip-left::before { display: none; }
+
+/* Contrôle checkbox sur la carte */
+.code-toggle-control {
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.code-toggle-label {
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+

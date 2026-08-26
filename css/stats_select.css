@@ -1,0 +1,94 @@
+/*  
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/
+
+
+table#stats_select
+{		
+	float:left;
+	width: 100%;
+	
+	margin-bottom: 0px;
+}
+
+
+table#stats_select tr
+{
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+
+table#stats_select td
+{
+	text-align: left;
+	
+	width: 250px;
+	font-size:12px;
+	vertical-align:top;
+
+}
+
+table#stats_select td.bold
+{
+	width: 130px;
+	
+	font-size:13px;
+	font-weight:bold;	
+	
+}
+
+table#stats_select td.num
+{
+	text-align:right;
+}
+
+
+table#stats_select tr p
+{
+	margin-top:5px;
+	font-size:12px;
+	color: #000;
+	/*color: #7A7A7A;*/
+}
+
+
+
+#cadre_perso
+{		
+	float:left;
+	width: 350px;
+	height: 110px;
+	
+	padding: 10px;
+	
+	margin-bottom: 0px;
+	
+	background-color:#e7eef6;
+}
+#cadre_perso .label
+{		
+	float:left;
+	width: 40px;
+	
+	margin: 0 10px;
+}
+
+#cadre_perso_2
+{		
+	float:left;
+	width: 100%;
+	padding: 0px;
+	
+	margin-bottom: 0px;
+	background-color:#fff;
+}
+#cadre_perso_2 .label
+{		
+	float:left;
+	width: 20px;
+	
+	margin: 0 5px;
+}

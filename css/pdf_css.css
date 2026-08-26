@@ -1,0 +1,611 @@
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+Fiche de Style pour l'édition d'un PDF
+Refonte 2026 : registre sobre institutionnel
+(gris/bleu HydroPacifique, filets fins)
+----------------------------------------
+*/
+
+body
+{
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 12px;
+    color: #222;
+    line-height: 1.45;
+}
+
+/* ----------------------------------------
+   Titres
+---------------------------------------- */
+
+h1
+{
+    margin-top: 0;
+    margin-bottom: 4px;
+    padding-bottom: 6px;
+
+    font-size: 21px;
+    font-weight: bold;
+    color: #1f4e79;
+
+    border-bottom: 2px solid #346EA6;
+}
+
+h1 span
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+h2
+{
+    margin-top: 26px;
+    margin-bottom: 10px;
+    padding: 4px 8px 4px 12px;
+
+    font-size: 14px;
+    font-weight: bold;
+    color: #1f4e79;
+
+    background-color: #eef3f8;
+    border-left: 4px solid #346EA6;
+}
+
+/* ----------------------------------------
+   Grille libellé / valeur (cartes de section)
+   Implémentée en <table> : mPDF gère mieux
+   les tables que les float pour l'alignement.
+---------------------------------------- */
+
+table.fields
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin: 0;
+}
+
+table.fields td
+{
+    border: none;
+    padding: 4px 10px 4px 0;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+/* Colonne libellé : gris, alignée à droite */
+table.fields td.label
+{
+    width: 130px;
+    color: #555;
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+
+/* Colonne valeur : sombre, en gras */
+table.fields td.value
+{
+    color: #222;
+    font-weight: bold;
+}
+
+/* Variante deux paires libellé/valeur par ligne */
+table.fields td.label2
+{
+    width: 130px;
+    color: #555;
+    text-align: right;
+    white-space: nowrap;
+    padding-left: 18px;
+    padding-right: 10px;
+}
+
+/* Bloc identité station (nom + code mis en avant) */
+table.identity
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-top: 8px;
+}
+
+table.identity td
+{
+    border: none;
+    padding: 0 16px 0 0;
+    vertical-align: top;
+}
+
+table.identity td .field-label
+{
+    display: block;
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+table.identity td .field-big
+{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f4e79;
+    line-height: 1.2;
+}
+
+/* ----------------------------------------
+   Tableaux de données (coordonnées, RA, chroniques)
+---------------------------------------- */
+
+table.data
+{
+    width: 100%;
+    font-size: 11px;
+    border-collapse: collapse;
+    border: 1px solid #bbb;
+    margin-top: 4px;
+}
+
+table.data td,
+table.data th
+{
+    border: 1px solid #ccc;
+    padding: 5px 7px;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Ligne d'en-tête */
+table.data th,
+table.data td.entete
+{
+    background-color: #346EA6;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #2a5a87;
+    text-align: left;
+}
+
+table.data td.bold
+{
+    font-weight: bold;
+}
+
+/* Zébrage des lignes */
+table.data tr.row1 { background: none; }
+table.data tr.row2 { background-color: #f3f4fa; }
+
+/* ----------------------------------------
+   Tableau "data available" injecté depuis
+   process_loaddata.php (id='table_tri').
+   Ces règles ne s'appliquent qu'au PDF : à
+   l'écran le tableau garde son CSS d'origine.
+   Harmonisation avec le style table.data.
+---------------------------------------- */
+
+table#table_tri
+{
+    width: 100%;
+    font-size: 11px;
+    border-collapse: collapse;
+    border: 1px solid #bbb;
+    margin-top: 4px;
+}
+
+table#table_tri td,
+table#table_tri th
+{
+    border: 1px solid #ccc;
+    padding: 5px 7px;
+    text-align: left;
+    vertical-align: top;
+}
+
+table#table_tri thead th,
+table#table_tri th
+{
+    background-color: #346EA6;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #2a5a87;
+}
+
+table#table_tri tr.row1 { background: none; }
+table#table_tri tr.row2 { background-color: #f3f4fa; }
+
+/* ----------------------------------------
+   Section "données disponibles" : tableaux côte
+   à côte + graphe pleine largeur dessous.
+---------------------------------------- */
+
+table.data-layout
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-top: 8px;
+}
+
+table.data-layout > tbody > tr > td
+{
+    border: none;
+    vertical-align: top;
+    padding: 0;
+}
+
+td.col-data  { width: 64%; padding-right: 16px; }
+td.col-cal   { width: 36%; }
+
+.graph-wrap
+{
+    margin-top: 18px;
+    text-align: center;
+}
+
+.graph-wrap img
+{
+    max-width: 100%;
+    height: auto;
+}
+
+/* ----------------------------------------
+   Photos
+---------------------------------------- */
+
+#cadre_photo
+{
+    width: 100%;
+    margin-top: 8px;
+}
+
+.photo-meta
+{
+    margin-top: 6px;
+    font-size: 11px;
+}
+
+.photo-meta span
+{
+    color: #555;
+    font-weight: bold;
+}
+
+/* ----------------------------------------
+   Description (texte libre)
+---------------------------------------- */
+
+.description-text
+{
+    margin-top: 6px;
+    padding: 8px 10px;
+    background-color: #f7f8fa;
+    border-left: 3px solid #cdd7e2;
+}
+
+/* ----------------------------------------
+   Field report (RA) PDF sheet
+---------------------------------------- */
+
+/* Identity block (station name + code, highlighted) */
+table.ra-identity
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-top: 8px;
+}
+
+table.ra-identity td
+{
+    border: none;
+    padding: 0 16px 2px 0;
+    vertical-align: top;
+}
+
+table.ra-identity td .ra-flabel
+{
+    display: block;
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+table.ra-identity td .ra-fbig
+{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1f4e79;
+    line-height: 1.2;
+}
+
+/* Label / value grid */
+table.ra-fields
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin: 0;
+}
+
+table.ra-fields td
+{
+    border: none;
+    padding: 3px 10px 3px 0;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+table.ra-fields td.ra-label
+{
+    width: 200px;
+    color: #555;
+    text-align: right;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+table.ra-fields td.ra-value
+{
+    color: #222;
+    font-weight: bold;
+}
+
+/* Free-text blocks (observations, to-do, participants) */
+.ra-text
+{
+    margin-top: 10px;
+    padding: 8px 10px;
+    background-color: #f7f8fa;
+    border-left: 3px solid #cdd7e2;
+    font-size: 12px;
+    min-height: 14px;
+}
+
+/* ----------------------------------------
+   Field report (RA) PDF — 3-column section layout
+---------------------------------------- */
+
+table.ra-row
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-top: 10px;
+}
+
+table.ra-row td.ra-col
+{
+    width: 33.33%;
+    border: none;
+    vertical-align: top;
+    padding: 0 8px 0 0;
+}
+
+.ra-sec
+{
+    margin-bottom: 6px;
+}
+
+table.ra-sec-title
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    background-color: #eef3f8;
+    margin-bottom: 10px;
+}
+
+table.ra-sec-title td
+{
+    border: none;
+    padding: 0;
+}
+
+td.ra-sec-bar
+{
+    width: 4px;
+}
+
+td.ra-sec-txt
+{
+    padding: 5px 6px 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+/* Text inside the title gets its own left padding so it never
+   sticks to the blue left border (mPDF ignores padding-left when
+   combined with border-left on the block itself). */
+.ra-sec-title-txt
+{
+    padding-left: 8px;
+}
+
+/* Compact label/value grid for narrow columns:
+   label on its own line (small grey), value below (bold). */
+table.ra-fields-col
+{
+    width: 100%;
+}
+
+table.ra-fields-col tr
+{
+    display: block;
+    margin-bottom: 5px;
+}
+
+table.ra-fields-col td.ra-label
+{
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: #555;
+    font-size: 10px;
+    padding: 0;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+table.ra-fields-col td.ra-value
+{
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: #222;
+    font-weight: bold;
+    padding: 0;
+    white-space: normal;
+    line-height: 1.3;
+}
+
+/* ----------------------------------------
+   RA PDF — header 2 columns + spacing tweaks
+---------------------------------------- */
+
+/* Header: station block (left) + edition info (right) */
+table.ra-head
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin-top: 12px;
+}
+
+table.ra-head > tbody > tr > td
+{
+    border: none;
+    vertical-align: top;
+    padding: 0;
+}
+
+td.ra-head-left
+{
+    width: 60%;
+    padding-right: 20px;
+}
+
+td.ra-head-right
+{
+    width: 40%;
+}
+
+/* Header label/value grid: label grey right-aligned, value bold left-aligned,
+   placed immediately next to each other (no centering drift). */
+table.ra-grid
+{
+    border-collapse: collapse;
+    border: none;
+}
+
+table.ra-grid td
+{
+    border: none;
+    padding: 2px 0;
+    vertical-align: baseline;
+    font-size: 12px;
+}
+
+table.ra-grid td.ra-glabel
+{
+    color: #555;
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 10px;
+}
+
+table.ra-grid td.ra-gval
+{
+    color: #222;
+    font-weight: bold;
+    text-align: left;
+}
+
+table.ra-grid td.ra-gbig
+{
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* Station identity rows: align the small grey label with the large value,
+   regular vertical spacing between the two lines. */
+table.ra-grid-id td
+{
+    padding: 3px 0;
+    vertical-align: middle;
+}
+
+table.ra-grid-id td.ra-glabel-big
+{
+    color: #555;
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 12px;
+    vertical-align: middle;
+}
+
+/* ----------------------------------------
+   RA PDF — title bar with validation badge
+---------------------------------------- */
+
+table.ra-titlebar
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    border-bottom: 2px solid #346EA6;
+    margin-bottom: 4px;
+}
+
+table.ra-titlebar td
+{
+    border: none;
+    padding: 0 0 6px 0;
+    vertical-align: bottom;
+}
+
+td.ra-title-cell .ra-title
+{
+    font-size: 21px;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+td.ra-title-cell .ra-title-type
+{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 4px;
+}
+
+td.ra-badge-cell
+{
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Coloured round badge (green = validated, red = not validated).
+   Rendered with a filled-circle glyph: mPDF sizes it via font-size,
+   which is far more reliable than width/height on an empty span. */
+.ra-badge
+{
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.ra-badge-txt
+{
+    font-size: 12px;
+    font-weight: bold;
+    color: #222;
+    padding-left: 8px;
+    vertical-align: middle;
+}

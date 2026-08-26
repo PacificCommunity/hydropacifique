@@ -1,0 +1,59 @@
+/*  
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/
+
+#pied_page
+{ 
+	position: fixed;
+    bottom: 0;
+
+	width: 100%; /*taille du site largeur */
+
+	padding: 10px 0;
+
+	background-color:#15151d;
+
+	font-size: 18px;
+	color: #eeeaea;
+}
+
+
+#pied_page.print
+{
+	position: relative;
+
+	width: 98%;
+	margin: 0px;
+	border: none;
+}
+
+
+#pied_page #copyright
+{ 
+	float: left;
+	width: 98%;
+
+	margin-top:0px;
+	margin-left: 15px;
+
+	font-size: 18px;
+	text-align:left;
+	color: #eeeaea;
+}
+
+#pied_page #copyright a
+{ 
+	font-size: 18px;
+	color: #eeeaea;
+}
+
+#pied_page #copyright a:hover{text-decoration: none;color:#3399cc;}
+
+
+#pied_page #copyright img
+{ 
+	height: 13px;
+	cursor: pointer;
+}

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mysql -h 127.0.0.1 -u root \"hp-data-fj\" -e \"SELECT id_station, nom_station, code_station, latitude_station, longitude_station, active_station FROM station WHERE id_station IN \\(2575,2576,2577\\);\")",
+      "Bash(mysql -h 127.0.0.1 -u root hp-data-fj -e ' *)"
+    ]
+  }
+}

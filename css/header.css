@@ -1,0 +1,715 @@
+/*
+----------------------------------------
+Copyright (c) 2024 - Vai-Natura
+----------------------------------------
+*/
+
+/*
+================================================================
+TOP HEADER BAR (#bando) - modernized
+================================================================
+- Original PNG logo on the left preserved
+- Centered server name
+- Info card with calendar icon for date/version
+- Circular avatar with initials (teal background)
+- SVG action icons replacing legacy PNG backgrounds
+================================================================
+*/
+
+#bando
+{
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 55px;
+
+    border-bottom: 3px solid #393E46;
+
+    z-index: 1400;
+
+    display: flex;
+    align-items: center;
+    padding: 0 24px 0 18px;
+    gap: 20px;
+
+    font-family: 'Open Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#bando.log
+{
+    width: 100%;
+    height: 15px;
+
+    border-bottom: 10px solid #393E46;
+    background-color: #000;
+
+    display: block;
+    padding: 0;
+    gap: 0;
+}
+
+/* Logo PNG (preserved) */
+#bando img
+{
+    float: none;
+    margin-left: 0;
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+
+/* Centered title - positioned absolutely at the middle of the bar
+   so it stays centered regardless of left/right blocks width */
+#top_center
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+    float: none;
+
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #2c2c2a;
+
+    line-height: 1;
+    pointer-events: none;
+}
+
+
+/* Right-side block */
+#nav_icon
+{
+    float: none;
+    margin-top: 0;
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+/* ---------- Info card (date + version) ---------- */
+
+.bando-info
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 12px;
+
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+}
+
+.bando-info .info-ico
+{
+    width: 14px;
+    height: 14px;
+    color: #393E46;
+    flex-shrink: 0;
+}
+
+.bando-info .info-text
+{
+    font-size: 11px;
+    line-height: 1.4;
+    color: #2c2c2a;
+}
+
+.bando-info .info-text strong
+{
+    font-weight: 700;
+    color: #393E46;
+}
+
+.bando-info .info-text .sep
+{
+    color: #999;
+    margin: 0 4px;
+}
+
+
+/* ---------- User block (avatar + name + role) ---------- */
+
+.bando-user
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bando-user .avatar
+{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    background: #176B87;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.3px;
+
+    flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.bando-user .user-text
+{
+    font-size: 11px;
+    line-height: 1.4;
+    color: #2c2c2a;
+}
+
+.bando-user .user-text .name
+{
+    font-weight: 700;
+    color: #393E46;
+    font-size: 12px;
+}
+
+.bando-user .user-text .role
+{
+    color: #5F5E5A;
+}
+
+
+/* ---------- Action icons (admin / password / logout) ---------- */
+
+.bando-icons
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    height: 36px;
+}
+
+.bando-icons a
+{
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    color: #393E46;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+}
+
+.bando-icons a:hover
+{
+    background: rgba(0, 0, 0, 0.08);
+    color: #176B87;
+}
+
+/* Logout : red hover for irreversible action */
+.bando-icons a.logout:hover
+{
+    background: rgba(217, 83, 79, 0.15);
+    color: #d9534f;
+}
+
+.bando-icons svg
+{
+    width: 22px;
+    height: 22px;
+    stroke-width: 2;
+}
+
+/* Hide legacy PNG backgrounds on .gestion / .mdp / .close
+   (the SVG inside the <a> takes over) */
+#nav_icon .gestion,
+#nav_icon .mdp,
+#nav_icon .close,
+#nav_icon .view
+{
+    background-image: none;
+    width: auto;
+    height: auto;
+    float: none;
+    margin: 0;
+}
+
+
+/*
+================================================================
+SECONDARY NAV ICONS (legacy block kept for other pages)
+================================================================
+*/
+
+#top_center.legacy
+{
+    float: left;
+    margin-top: 17px;
+    margin-left: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/*
+================================================================
+SIDE NAVIGATION (modernized - already validated)
+================================================================
+*/
+
+#col
+{
+    float: left;
+    height: calc(100% - 10px);
+    overflow-y: auto;
+
+    width: 165px;
+    margin-left: 5px;
+}
+
+#col.collapsed
+{
+    width: 0px;
+}
+
+#toggle-arrow
+{
+    float: left;
+
+    cursor: pointer;
+    text-align: center;
+    background: #f0f6f7;
+    padding: 5px 7px;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+    color: #176B87;
+    transition: background 0.15s;
+}
+
+#toggle-arrow:hover
+{
+    background-color: #176B87;
+    color: #fff;
+}
+
+
+#nav_col
+{
+    width: 145px;
+    text-align: left;
+    font-family: 'Open Sans', Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+#nav_col .section
+{
+    margin-bottom: 6px;
+}
+
+
+#nav_col .toggle-header
+{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0;
+    padding: 7px 4px 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+    color: #393E46!important;
+    letter-spacing: 0.2px;
+
+    border-bottom: 1px solid #e0e0e0!important;
+    user-select: none;
+    transition: color 0.15s;
+}
+
+#nav_col .toggle-header .arrow
+{
+    float: none;
+    font-size: 9px;
+    color: #999;
+    transition: color 0.15s;
+}
+
+#nav_col .toggle-header:hover { color: #176B87 !important; }
+#nav_col .toggle-header:hover .arrow { color: #176B87; }
+
+
+/* Section accent colors */
+#nav_col .section[data-section='data'] .toggle-header { border-bottom-color: #393E46 !important; }
+#nav_col .section[data-section='mod']  .toggle-header { border-bottom-color: #10740e !important; }
+#nav_col .section[data-section='set']  .toggle-header { border-bottom-color: #1862bd !important; }
+#nav_col .section[data-section='act']  .toggle-header { border-bottom-color: #aa1002 !important; }
+#nav_col .section[data-section='ress'] .toggle-header { border-bottom-color: #fe9b00 !important; }
+
+
+.navigation, .calc-navigation
+{
+    float: left;
+    width: 100%;
+
+    margin-bottom: 4px;
+
+    overflow: hidden;
+    transition: max-height 0.1s ease-out;
+}
+
+.navigation ul
+{
+    width: 100%;
+    padding: 4px 0;
+    margin: 0;
+    padding-inline-start: 0;
+
+    list-style: none;
+    text-align: left;
+
+    font-family: 'Open Sans', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    color: #393E46;
+}
+
+
+.navigation li.simple
+{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.navigation li.simple a
+{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 5px 4px 5px 2px;
+    margin: 0;
+
+    font-family: 'Open Sans', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 10.5px;
+    color: #393E46;
+    text-decoration: none;
+
+    border-left: 2px solid transparent;
+    border-radius: 0 3px 3px 0;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.navigation li.simple a .menu-ico
+{
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    color: #888;
+    transition: color 0.12s;
+}
+
+.navigation li.simple a span
+{
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navigation li.simple a:hover
+{
+    background: #f3f7f9;
+    color: #176B87;
+}
+
+.navigation li.simple a:hover .menu-ico { color: #176B87; }
+
+.navigation li.simple a.active
+{
+    background: #e6f0f5;
+    color: #176B87;
+    font-weight: 600;
+    border-left-color: #176B87;
+}
+
+.navigation li.simple a.active .menu-ico { color: #176B87; }
+
+
+/* Section-specific hover/active colors */
+
+#nav_col .section[data-section='data'] .navigation li.simple a:hover { color: #393E46; }
+#nav_col .section[data-section='data'] .navigation li.simple a:hover .menu-ico { color: #393E46; }
+
+#nav_col .section[data-section='mod']  .navigation li.simple a:hover { color: #10740e; }
+#nav_col .section[data-section='mod']  .navigation li.simple a:hover .menu-ico { color: #10740e; }
+
+#nav_col .section[data-section='set']  .navigation li.simple a:hover { color: #1862bd; }
+#nav_col .section[data-section='set']  .navigation li.simple a:hover .menu-ico { color: #1862bd; }
+
+#nav_col .section[data-section='act']  .navigation li.simple a:hover { color: #aa1002; }
+#nav_col .section[data-section='act']  .navigation li.simple a:hover .menu-ico { color: #aa1002; }
+
+#nav_col .section[data-section='ress'] .navigation li.simple a:hover { color: #fe9b00; }
+#nav_col .section[data-section='ress'] .navigation li.simple a:hover .menu-ico { color: #fe9b00; }
+
+
+#nav_col .section[data-section='data'] .navigation li.simple a.active { background: #f0f1f3; color: #393E46; border-left-color: #393E46; }
+#nav_col .section[data-section='data'] .navigation li.simple a.active .menu-ico { color: #393E46; }
+
+#nav_col .section[data-section='mod']  .navigation li.simple a.active { background: #ebf5ea; color: #10740e; border-left-color: #10740e; }
+#nav_col .section[data-section='mod']  .navigation li.simple a.active .menu-ico { color: #10740e; }
+
+#nav_col .section[data-section='set']  .navigation li.simple a.active { background: #eaf2fc; color: #1862bd; border-left-color: #1862bd; }
+#nav_col .section[data-section='set']  .navigation li.simple a.active .menu-ico { color: #1862bd; }
+
+#nav_col .section[data-section='act']  .navigation li.simple a.active { background: #fcecea; color: #aa1002; border-left-color: #aa1002; }
+#nav_col .section[data-section='act']  .navigation li.simple a.active .menu-ico { color: #aa1002; }
+
+#nav_col .section[data-section='ress'] .navigation li.simple a.active { background: #fff4e3; color: #fe9b00; border-left-color: #fe9b00; }
+#nav_col .section[data-section='ress'] .navigation li.simple a.active .menu-ico { color: #fe9b00; }
+
+
+/* Hide legacy <img> in menu items (we now use SVG) */
+.navigation li.simple img { display: none; }
+
+
+/* Legacy #menu block (kept for any other usage) */
+
+#menu
+{
+    margin-left: 2px;
+    margin-top: 15px;
+    padding: 0px 1%;
+}
+
+#menu a { font-size: 11px; }
+#menu a:hover { font-size: 11px; color: #000; }
+#menu img { width: 10px; margin-right: 5px; }
+
+
+/* Other toggle headers (calculator views) */
+
+.toggle-jge, .calc-toggle-header
+{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calc-toggle-header
+{
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.navigation p.next { color: #999; }
+.navigation img    { width: 80px; }
+
+html>body .navigation li
+{
+    border-right: 1px solid transparent;
+}
+
+
+/*
+----------------------------------------
+Action buttons (Last field report / Last imported data)
+Modernized version of the two #contenu_infos_load links.
+Palette aligned with the app (#176B87 / #393E46).
+----------------------------------------
+*/
+ 
+.filtre-actions
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+ 
+    width: 91%;       /* match the count panel width above */
+    margin-top: 12px;
+}
+ 
+.filtre-action-btn
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+ 
+    padding: 9px 12px;
+ 
+    border: 1px solid #d7dadc;
+    border-radius: 8px;
+ 
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 11px;
+    color: #393E46;
+    text-decoration: none;
+ 
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+ 
+.filtre-action-btn:hover
+{
+    background: #f3f7f9;
+    border-color: #176B87;
+    color: #176B87;
+}
+ 
+.filtre-action-btn .act-ico
+{
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/*
+----------------------------------------
+Filter sidebar - modernized blocks:
+- Station count summary as stat cards (.filtre-stats / .filtre-stat)
+- Action buttons (.filtre-actions / .filtre-action-btn)
+  Last field report / Last imported data
+Palette aligned with the app (#176B87 / #393E46).
+----------------------------------------
+*/
+ 
+/* ---------- Stat cards (station counters) ---------- */
+.filtre-stats
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+ 
+    width: 91%;          /* match the sidebar content width */
+    margin-top: 10px;
+ 
+    /* Reset any inherited panel styling from the old #contenu_infos rule
+       (yellow background, border, padding). The cards carry their own bg. */
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+ 
+.filtre-stat
+{
+    background: #f5f6f7;
+    border-radius: 8px;
+    padding: 9px 11px;
+}
+ 
+.filtre-stat .stat-label
+{
+    font-size: 11px;
+    color: #5F5E5A;
+    line-height: 1.3;
+}
+ 
+.filtre-stat .stat-value
+{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #393E46;
+}
+ 
+.filtre-stat .stat-value.active  { color: #0F6E56; } /* green  */
+.filtre-stat .stat-value.continu { color: #185FA5; } /* blue   */
+.filtre-stat .stat-value.panne   { color: #A32D2D; } /* red    */
+ 
+ 
+/* Override the legacy #contenu_infos panel styling (id selector, higher
+   specificity) so no yellow background / border leaks through. */
+#contenu_infos.filtre-stats
+{
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+ 
+ 
+/* ---------- Action buttons (Last RA / Last Import) ---------- */
+ 
+.filtre-actions
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+ 
+    width: 91%;          /* match the stat panel width above */
+    margin-top: 12px;
+}
+ 
+.filtre-action-btn
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+ 
+    padding: 9px 12px;
+ 
+    border: 1px solid #d7dadc;
+    border-radius: 8px;
+ 
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 11px;
+    color: #393E46;
+    text-decoration: none;
+ 
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+ 
+.filtre-action-btn:hover
+{
+    background: #f3f7f9;
+    border-color: #176B87;
+    color: #176B87;
+}
+ 
+.filtre-action-btn .act-ico
+{
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+ 
+ 
+/* ---------- Reset button in the Filters header ---------- */
+ 
+#filters_reset
+{
+    display: inline-block;
+    transition: color 0.15s;
+    vertical-align: middle;
+}
+ 
+#filters_reset:hover
+{
+    color: #176B87 !important;   /* teal on hover, overrides inline grey */
+}
