@@ -60,11 +60,21 @@ services:
       # NO_ZERO_IN_DATE, because the schema itself declares columns as
       # `date NOT NULL DEFAULT '0000-00-00'`.
       #
-      # STRICT_TRANS_TABLES is kept deliberately: it turns over-long or bad
-      # values into errors instead of silently truncating measurement data. If
-      # that starts blocking legitimate writes ("Data too long", "Incorrect date
-      # value"), reduce this to just NO_ENGINE_SUBSTITUTION.
-      - --sql-mode=STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION
+      # STRICT_TRANS_TABLES was kept here originally, to turn over-long or bad
+      # values into errors instead of silently truncating measurement data. It
+      # had to be dropped (2026-09-17): it blocks legitimate writes. Saving a new
+      # station fails with "Field 'id_station_old' doesn't have a default value"
+      # because process_station_save.php:433 inserts a stub row naming only
+      # (id_station, code_station), while `station` has 14 other NOT NULL columns
+      # with no DEFAULT (id_station_old, active_station, nom_station,
+      # orientation_station, latitude/longitude_station, utm/ign/lamb_station_x|y,
+      # description_station, proprio_station). In non-strict mode MySQL fills
+      # them with the implicit default, which is what this code was written for.
+      #
+      # The real fix is DEFAULTs in the schema; until that exists, strict mode
+      # means those forms simply do not work. Re-adding STRICT_TRANS_TABLES
+      # without first ALTERing those columns will break station creation again.
+      - --sql-mode=NO_ENGINE_SUBSTITUTION
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?set MYSQL_ROOT_PASSWORD in .env}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-hp-data-fj}
